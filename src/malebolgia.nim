@@ -3,7 +3,7 @@
 import std / [atomics, locks, tasks]
 
 type
-  Master* = object ## Masters can spawn new chan inside an `awaitAll` block.
+  Master* = object ## Masters can spawn new tasks inside an `awaitAll` block.
     c: Cond
     L: Lock
     runningTasks: int
@@ -97,7 +97,8 @@ proc worker() {.thread.} =
     signal(chan.spaceAvailable)
     if not item.m.stopToken.load(moRelaxed):
       item.t.invoke()
-      taskCompleted item.m[]
+    # but mark it as completed either way!
+    taskCompleted item.m[]
 
 proc setup() =
   initCond(chan.dataAvailable)
@@ -109,6 +110,9 @@ proc panicStop*() =
   ## Stops all threads.
   globalStopToken.store(true, moRelaxed)
   joinThreads(thr)
+  deinitCond(chan.dataAvailable)
+  deinitCond(chan.spaceAvailable)
+  deinitLock(chan.L)
 
 template spawn*(master: var Master; fn: typed) =
   taskCreated master
