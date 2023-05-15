@@ -6,6 +6,7 @@ type
   Master* = object ## Masters can spawn new tasks inside an `awaitAll` block.
     c: Cond
     L: Lock
+    error: string
     runningTasks: int
     stopToken: Atomic[bool]
 
@@ -37,16 +38,19 @@ proc taskCompleted(m: var Master) {.inline.} =
   release(m.L)
   signal(m.c)
 
-proc waitForCompletions(m: var Master) {.inline.} =
+proc waitForCompletions(m: var Master) =
   acquire(m.L)
   while m.runningTasks > 0:
     wait(m.c, m.L)
+  let err = move(m.error)
   release(m.L)
+  if err.len > 0:
+    raise newException(ValueError, err)
 
 # thread pool independent of the 'master':
 
 const
-  FixedChanSize {.intdefine.} = 64 ## must be power of two!
+  FixedChanSize {.intdefine.} = 64 ## must be a power of two!
   FixedChanMask = FixedChanSize - 1
 
   ThreadPoolSize {.intdefine.} = 256
@@ -96,7 +100,14 @@ proc worker() {.thread.} =
     release(chan.L)
     signal(chan.spaceAvailable)
     if not item.m.stopToken.load(moRelaxed):
-      item.t.invoke()
+      try:
+        item.t.invoke()
+      except:
+        acquire(item.m.L)
+        let e = getCurrentException()
+        item.m.error = "SPAWN FAILURE: [" & $e.name & "] " & e.msg & "\n" & getStackTrace(e)
+        release(item.m.L)
+
     # but mark it as completed either way!
     taskCompleted item.m[]
 
