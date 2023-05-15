@@ -6,12 +6,12 @@ proc f() =
   echo "F"
 
 proc g(m: ptr Master; i: int) {.gcsafe.} =
-  if i < 10:
+  if i < 800:
     echo "In g"
-    m[].spawn f()
+    #m[].spawn f()
 
     m[].spawn g(m, i+1)
-    m[].spawn g(m, i+1)
+    #m[].spawn g(m, i+1)
     echo "G done"
 
 proc main =

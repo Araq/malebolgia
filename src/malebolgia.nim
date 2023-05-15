@@ -104,8 +104,9 @@ proc worker() {.thread.} =
         item.t.invoke()
       except:
         acquire(item.m.L)
-        let e = getCurrentException()
-        item.m.error = "SPAWN FAILURE: [" & $e.name & "] " & e.msg & "\n" & getStackTrace(e)
+        if item.m.error.len == 0:
+          let e = getCurrentException()
+          item.m.error = "SPAWN FAILURE: [" & $e.name & "] " & e.msg & "\n" & getStackTrace(e)
         release(item.m.L)
 
     # but mark it as completed either way!
