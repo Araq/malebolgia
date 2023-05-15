@@ -70,7 +70,7 @@ var
 proc send(item: sink PoolTask) =
   # see deques.addLast:
   acquire(chan.L)
-  if chan.count >= FixedChanSize:
+  while chan.count >= FixedChanSize:
     wait(chan.spaceAvailable, chan.L)
   if chan.count < FixedChanSize:
     inc chan.count
