@@ -70,6 +70,7 @@ var
   thr: array[ThreadPoolSize, Thread[void]]
   chan: FixedChan
   globalStopToken: Atomic[bool]
+  busyThreads: Atomic[int]
 
 proc send(item: sink PoolTask) =
   # see deques.addLast:
@@ -101,7 +102,9 @@ proc worker() {.thread.} =
     signal(chan.spaceAvailable)
     if not item.m.stopToken.load(moRelaxed):
       try:
+        atomicInc busyThreads
         item.t.invoke()
+        atomicDec busyThreads
       except:
         acquire(item.m.L)
         if item.m.error.len == 0:
@@ -127,8 +130,11 @@ proc panicStop*() =
   deinitLock(chan.L)
 
 template spawn*(master: var Master; fn: typed) =
-  taskCreated master
-  send PoolTask(m: addr(master), t: toTask(fn))
+  if busyThreads.load(moRelaxed) < ThreadPoolSize:
+    taskCreated master
+    send PoolTask(m: addr(master), t: toTask(fn))
+  else:
+    fn
 
 template awaitAll*(master: var Master; body: untyped) =
   try:
