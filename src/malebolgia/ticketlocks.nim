@@ -1,6 +1,7 @@
 ## Ticketlocks for Nim.
-## A ticket lock is a fair lock, ideal for guaranteed worst case execution times (WCET)
-## assuming that the number of threads is a constant which is true for Malebogia.
+## A ticket lock is a fair lock, ideal for guaranteed worst case execution times (WCET).
+## This implementation has the advantage that no `deinit` nor a destructor has to be
+## run making it especially convenient to use.
 
 import std / atomics
 
@@ -17,3 +18,4 @@ proc release*(L: var TicketLock) {.inline.} =
   let myTicket = L.nowServing.load(moRelaxed)
   L.nowServing.store(myTicket + 1, moRelease)
 
+proc initTicketLock*(): TicketLock = TicketLock()
