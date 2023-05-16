@@ -11,10 +11,9 @@ type
 proc acquire*(L: var TicketLock) {.inline.} =
   let myTicket = L.nextTicket.fetchAdd(1, moRelaxed)
   while L.nowServing.load(moAcquire) != myTicket:
-    discard
+    cpuRelax()
 
 proc release*(L: var TicketLock) {.inline.} =
   let myTicket = L.nowServing.load(moRelaxed)
   L.nowServing.store(myTicket + 1, moRelease)
-
 
