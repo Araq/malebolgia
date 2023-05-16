@@ -35,8 +35,8 @@ proc taskCreated(m: var Master) {.inline.} =
 proc taskCompleted(m: var Master) {.inline.} =
   acquire(m.L)
   dec m.runningTasks
-  release(m.L)
   signal(m.c)
+  release(m.L)
 
 proc waitForCompletions(m: var Master) =
   acquire(m.L)
