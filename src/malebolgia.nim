@@ -81,8 +81,8 @@ proc send(item: sink PoolTask) =
     inc chan.count
     chan.data[chan.tail] = item
     chan.tail = (chan.tail + 1) and FixedChanMask
-    release(chan.L)
     signal(chan.dataAvailable)
+    release(chan.L)
   else:
     release(chan.L)
     quit "logic bug: queue not empty after signal!"
@@ -98,8 +98,8 @@ proc worker() {.thread.} =
       dec chan.count
       item = move chan.data[chan.head]
       chan.head = (chan.head + 1) and FixedChanMask
-    release(chan.L)
     signal(chan.spaceAvailable)
+    release(chan.L)
     if not item.m.stopToken.load(moRelaxed):
       try:
         atomicInc busyThreads
