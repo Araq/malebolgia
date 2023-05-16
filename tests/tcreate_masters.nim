@@ -16,23 +16,29 @@ proc f() =
   inc counter
   release counterLock
 
-proc g(i: int) {.gcsafe.} =
+proc g(i: int): int {.gcsafe.} =
   if i < 8:
     echo "level open ", i
     var m = createMaster()
+    var resA, resB: int
     m.awaitAll:
       m.spawn f()
-      m.spawn g(i+1)
-      m.spawn g(i+1)
+      m.spawn g(i+1), addr resA
+      m.spawn g(i+1), addr resB
       echo "waiting for ", i
+    result = resA + resB
 
     echo "level done ", i
+  else:
+    result = 1
 
 proc main =
   var m = createMaster()
+  var res: int
   m.awaitAll:
-    m.spawn g(0)
+    m.spawn g(0), addr res
 
   echo "counter ", counter
+  echo "final result ", res
 
 main()
