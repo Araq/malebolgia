@@ -59,6 +59,7 @@ type
   PoolTask = object ## a task for the thread pool
     m: ptr Master   ## who is waiting for us
     t: Task         ## what to do
+    result: pointer ## where to store the potential result
 
   FixedChan = object ## channel of a fixed size
     spaceAvailable, dataAvailable: Cond
@@ -103,7 +104,7 @@ proc worker() {.thread.} =
     if not item.m.stopToken.load(moRelaxed):
       try:
         atomicInc busyThreads
-        item.t.invoke()
+        item.t.invoke(item.result)
         atomicDec busyThreads
       except:
         acquire(item.m.L)
@@ -129,10 +130,17 @@ proc panicStop*() =
   deinitCond(chan.spaceAvailable)
   deinitLock(chan.L)
 
+template spawn*[T](master: var Master; fn: typed; res: ptr T) =
+  if busyThreads.load(moRelaxed) < ThreadPoolSize:
+    taskCreated master
+    send PoolTask(m: addr(master), t: toTask(fn), result: res)
+  else:
+    res[] = fn
+
 template spawn*(master: var Master; fn: typed) =
   if busyThreads.load(moRelaxed) < ThreadPoolSize:
     taskCreated master
-    send PoolTask(m: addr(master), t: toTask(fn))
+    send PoolTask(m: addr(master), t: toTask(fn), result: nil)
   else:
     fn
 
