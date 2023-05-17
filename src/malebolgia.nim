@@ -170,17 +170,22 @@ macro checkBody(body: untyped): untyped =
   proc isSpawn(n: NimNode): bool =
     n.eqIdent("spawn") or (n.kind == nnkDotExpr and n[1].eqIdent("spawn"))
 
-  proc check(n: NimNode; exprs: var seq[NimNode]) =
+  proc check(n: NimNode; exprs: var seq[NimNode]; withinLoop: bool) =
     if n.kind in nnkCallKinds and isSpawn(n[0]):
       let b = n[^1]
       for i in 1 ..< n.len:
-        check n[i], exprs
+        check n[i], exprs, withinLoop
       if b.kind in nnkCallKinds and b.len == 3 and b[0].eqIdent("->"):
-        exprs.add b[2]
+        let dest = b[2]
+        exprs.add dest
+        if withinLoop and dest.kind in {nnkSym, nnkIdent}:
+          error("re-use of expression '" & $dest & "' before 'awaitAll' completed", dest)
+
     elif n.kind in DeclarativeNodes:
       discard "declarative nodes are not interesting"
     else:
-      for child in items(n): check child, exprs
+      let withinLoopB = withinLoop or n.kind in {nnkWhileStmt, nnkForStmt}
+      for child in items(n): check child, exprs, withinLoopB
       for i in 0..<exprs.len:
         # `==` on NimNode checks if nodes are structurally equivalent.
         # Which is exactly what we need here:
@@ -188,7 +193,7 @@ macro checkBody(body: untyped): untyped =
           error("re-use of expression '" & $n & "' before 'awaitAll' completed", n)
 
   var exprs: seq[NimNode] = @[]
-  check body, exprs
+  check body, exprs, false
   result = body
 
 template awaitAll*(master: var Master; body: untyped) =
