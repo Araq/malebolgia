@@ -9,10 +9,21 @@ type
   TicketLock* = object
     nextTicket, nowServing: Atomic[int]
 
+# See https://mfukar.github.io/2017/09/08/ticketspinlock.html for the ideas used here.
+
 proc acquire*(L: var TicketLock) {.inline.} =
   let myTicket = L.nextTicket.fetchAdd(1, moRelaxed)
-  while L.nowServing.load(moAcquire) != myTicket:
-    cpuRelax()
+  while true:
+    let currentlyServing = L.nowServing.load(moAcquire)
+    if currentlyServing == myTicket: break
+
+    let previousTicket = myTicket - currentlyServing
+    # assume the other CPU uses the lock for 30 cycles at least:
+    var delaySlots = 30 * previousTicket
+    while true:
+      cpuRelax()
+      dec delaySlots
+      if delaySlots <= 0: break
 
 proc release*(L: var TicketLock) {.inline.} =
   let myTicket = L.nowServing.load(moRelaxed)
