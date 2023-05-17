@@ -130,23 +130,70 @@ proc panicStop*() =
   deinitCond(chan.spaceAvailable)
   deinitLock(chan.L)
 
-template spawn*[T](master: var Master; fn: typed; res: ptr T) =
+template spawnImplRes[T](master: var Master; fn: typed; res: T) =
   if busyThreads.load(moRelaxed) < ThreadPoolSize:
     taskCreated master
-    send PoolTask(m: addr(master), t: toTask(fn), result: res)
+    send PoolTask(m: addr(master), t: toTask(fn), result: addr res)
   else:
-    res[] = fn
+    res = fn
 
-template spawn*(master: var Master; fn: typed) =
+template spawnImplNoRes(master: var Master; fn: typed) =
   if busyThreads.load(moRelaxed) < ThreadPoolSize:
     taskCreated master
     send PoolTask(m: addr(master), t: toTask(fn), result: nil)
   else:
     fn
 
+import std / macros
+
+macro spawn*(a: Master; b: untyped) =
+  if b.kind in nnkCallKinds and b.len == 3 and b[0].eqIdent("->"):
+    result = newCall(bindSym"spawnImplRes", a, b[1], b[2])
+  else:
+    result = newCall(bindSym"spawnImplNoRes", a, b)
+
+macro checkBody(body: untyped): untyped =
+  # We check here for dangerous "too early" access of memory locations that
+  # are "already" gone.
+  # For example:
+  #
+  # m.awaitAll:
+  #    m.spawn g(i+1) -> resA
+  #    m.spawn g(i+1) -> resA # <-- store into the same location without protection!
+
+  const DeclarativeNodes = {nnkTypeSection, nnkFormalParams, nnkGenericParams,
+    nnkMacroDef, nnkTemplateDef, nnkConstSection, nnkConstDef,
+    nnkIncludeStmt, nnkImportStmt,
+    nnkExportStmt, nnkPragma, nnkCommentStmt,
+    nnkTypeOfExpr, nnkMixinStmt, nnkBindStmt}
+
+  proc isSpawn(n: NimNode): bool =
+    n.eqIdent("spawn") or (n.kind == nnkDotExpr and n[1].eqIdent("spawn"))
+
+  proc check(n: NimNode; exprs: var seq[NimNode]) =
+    if n.kind in nnkCallKinds and isSpawn(n[0]):
+      let b = n[^1]
+      for i in 1 ..< n.len:
+        check n[i], exprs
+      if b.kind in nnkCallKinds and b.len == 3 and b[0].eqIdent("->"):
+        exprs.add b[2]
+    elif n.kind in DeclarativeNodes:
+      discard "declarative nodes are not interesting"
+    else:
+      for child in items(n): check child, exprs
+      for i in 0..<exprs.len:
+        # `==` on NimNode checks if nodes are structurally equivalent.
+        # Which is exactly what we need here:
+        if exprs[i] == n:
+          error("re-use of expression '" & $n & "' before 'awaitAll' completed", n)
+
+  var exprs: seq[NimNode] = @[]
+  check body, exprs
+  result = body
+
 template awaitAll*(master: var Master; body: untyped) =
   try:
-    body
+    checkBody body
   finally:
     waitForCompletions(master)
 

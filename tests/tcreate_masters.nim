@@ -23,8 +23,8 @@ proc g(i: int): int {.gcsafe.} =
     var resA, resB: int
     m.awaitAll:
       m.spawn f()
-      m.spawn g(i+1), addr resA
-      m.spawn g(i+1), addr resB
+      m.spawn g(i+1) -> resA
+      m.spawn g(i+1) -> resB
       echo "waiting for ", i
     result = resA + resB
 
@@ -36,7 +36,7 @@ proc main =
   var m = createMaster()
   var res: int
   m.awaitAll:
-    m.spawn g(0), addr res
+    m.spawn g(0) -> res
 
   echo "counter ", counter
   echo "final result ", res
