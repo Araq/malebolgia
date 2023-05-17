@@ -1,6 +1,7 @@
 ## (c) 2023 Andreas Rumpf
 
-import std / [atomics, locks, tasks]
+import std / [atomics, locks, tasks, times]
+from std / os import sleep
 
 type
   Master* = object ## Masters can spawn new tasks inside an `awaitAll` block.
@@ -9,6 +10,8 @@ type
     error: string
     runningTasks: int
     stopToken: Atomic[bool]
+    shouldEndAt: Time
+    usesTimeout: bool
 
 proc `=destroy`(m: var Master) {.inline.} =
   deinitCond(m.c)
@@ -17,10 +20,13 @@ proc `=destroy`(m: var Master) {.inline.} =
 proc `=copy`(dest: var Master; src: Master) {.error.}
 proc `=sink`(dest: var Master; src: Master) {.error.}
 
-proc createMaster*(): Master =
+proc createMaster*(timeout = default(Duration)): Master =
   result = default(Master)
   initCond(result.c)
   initLock(result.L)
+  if timeout != default(Duration):
+    result.usesTimeout = true
+    result.shouldEndAt = getTime() + timeout
 
 proc abort*(m: var Master) =
   ## Try to stop all running tasks immediately.
@@ -38,14 +44,29 @@ proc taskCompleted(m: var Master) {.inline.} =
   release(m.L)
   signal(m.c)
 
+proc stillHaveTime*(m: Master): bool {.inline.} =
+  not m.usesTimeout or getTime() < m.shouldEndAt
+
 proc waitForCompletions(m: var Master) =
-  acquire(m.L)
-  while m.runningTasks > 0:
-    wait(m.c, m.L)
+  var timeoutErr = false
+  if not m.usesTimeout:
+    acquire(m.L)
+    while m.runningTasks > 0:
+      wait(m.c, m.L)
+  else:
+    while true:
+      if getTime() > m.shouldEndAt:
+        timeoutErr = true
+        break
+      sleep(10) # XXX maybe make more precise
+    acquire(m.L)
   let err = move(m.error)
   release(m.L)
   if err.len > 0:
     raise newException(ValueError, err)
+  elif timeoutErr:
+    m.abort()
+    raise newException(ValueError, "'awaitAll' timeout")
 
 # thread pool independent of the 'master':
 
@@ -131,18 +152,20 @@ proc panicStop*() =
   deinitLock(chan.L)
 
 template spawnImplRes[T](master: var Master; fn: typed; res: T) =
-  if busyThreads.load(moRelaxed) < ThreadPoolSize:
-    taskCreated master
-    send PoolTask(m: addr(master), t: toTask(fn), result: addr res)
-  else:
-    res = fn
+  if stillHaveTime(master):
+    if busyThreads.load(moRelaxed) < ThreadPoolSize:
+      taskCreated master
+      send PoolTask(m: addr(master), t: toTask(fn), result: addr res)
+    else:
+      res = fn
 
 template spawnImplNoRes(master: var Master; fn: typed) =
-  if busyThreads.load(moRelaxed) < ThreadPoolSize:
-    taskCreated master
-    send PoolTask(m: addr(master), t: toTask(fn), result: nil)
-  else:
-    fn
+  if stillHaveTime(master):
+    if busyThreads.load(moRelaxed) < ThreadPoolSize:
+      taskCreated master
+      send PoolTask(m: addr(master), t: toTask(fn), result: nil)
+    else:
+      fn
 
 import std / macros
 

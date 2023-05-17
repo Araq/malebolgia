@@ -7,7 +7,7 @@ discard """
 import malebolgia
 import malebolgia / ticketlocks
 
-import std / [isolation, httpclient, os, streams, parsexml, strutils, sets]
+import std / [isolation, httpclient, os, streams, parsexml, strutils, sets, times]
 
 const
   StartUrl = "https://nim-lang.org"
@@ -100,6 +100,6 @@ proc download(url: string; master: ptr Master) =
 
 seen.incl StartUrl
 
-var master = createMaster()
+var master = createMaster(timeout=initDuration(seconds=10))
 master.awaitAll:
   master.spawn download(StartUrl, addr master)
