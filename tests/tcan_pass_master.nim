@@ -1,5 +1,5 @@
 
-import malebolgia_opt
+import malebolgia
 import std / isolation
 
 proc f() =
