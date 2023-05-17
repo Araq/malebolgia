@@ -12,9 +12,8 @@ var
 proc f() =
   echo "F"
   #sleep 50
-  acquire counterLock
-  inc counter
-  release counterLock
+  withLock counterLock:
+    inc counter
 
 proc g(i: int): int {.gcsafe.} =
   if i < 8:

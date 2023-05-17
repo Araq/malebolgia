@@ -30,3 +30,13 @@ proc release*(L: var TicketLock) {.inline.} =
   L.nowServing.store(myTicket + 1, moRelease)
 
 proc initTicketLock*(): TicketLock = TicketLock()
+
+template withLock*(a: TicketLock, body: untyped) =
+  ## Acquires the given lock, executes the statements in body and
+  ## releases the lock after the statements finished executing.
+  acquire(a)
+  {.gcsafe.}:
+    try:
+      body
+    finally:
+      release(a)
