@@ -13,7 +13,7 @@ const
   StartUrl = "https://nim-lang.org"
 
 proc combine(url, base: string): string =
-  if url.endsWith(".tar.xz") or url.endsWith(".zip"):
+  if url.endsWith(".tar.xz") or url.endsWith(".zip") or url.endsWith(".7z"):
     result = ""
   elif url.startsWith(base):
     result = url

@@ -55,6 +55,10 @@ proc waitForCompletions(m: var Master) =
       wait(m.c, m.L)
   else:
     while true:
+      acquire(m.L)
+      let success = m.runningTasks == 0
+      release(m.L)
+      if success: break
       if getTime() > m.shouldEndAt:
         timeoutErr = true
         break
