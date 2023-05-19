@@ -14,6 +14,6 @@ proc main =
     m.spawn foo()
     for i in 0..<1000:
       m.spawn bar($i)
-      if i == 300: m.abort()
+      if i == 300: m.cancel()
 
 main()

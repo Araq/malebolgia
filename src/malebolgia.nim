@@ -3,6 +3,9 @@
 import std / [atomics, locks, tasks, times]
 from std / os import sleep
 
+import std / isolation
+export isolation
+
 type
   Master* = object ## Masters can spawn new tasks inside an `awaitAll` block.
     c: Cond
@@ -28,10 +31,16 @@ proc createMaster*(timeout = default(Duration)): Master =
     result.usesTimeout = true
     result.shouldEndAt = getTime() + timeout
 
-proc abort*(m: var Master) =
+proc cancel*(m: var Master) =
   ## Try to stop all running tasks immediately.
   ## This cannot fail but it might take longer than desired.
   store(m.stopToken, true, moRelaxed)
+
+proc cancelled*(m: ptr Master): bool {.inline.} =
+  m.stopToken.load(moRelaxed)
+
+proc cancelled*(m: var Master): bool {.inline.} =
+  m.stopToken.load(moRelaxed)
 
 proc taskCreated(m: var Master) {.inline.} =
   acquire(m.L)
@@ -69,7 +78,7 @@ proc waitForCompletions(m: var Master) =
   if err.len > 0:
     raise newException(ValueError, err)
   elif timeoutErr:
-    m.abort()
+    m.cancel()
     raise newException(ValueError, "'awaitAll' timeout")
 
 # thread pool independent of the 'master':
