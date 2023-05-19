@@ -12,15 +12,14 @@ proc fib(n: int): int {.gcsafe.} =
 
 proc main() =
   var n = 40
-
-  init(Weave)
   let f = fib(n)
-  exit(Weave)
-
   echo f
 
-import std / times
+import std / monotimes
 
-let t0 = getTime()
+init(Weave)
+
+let t0 = getMonoTime()
 main()
-echo "took ", getTime() - t0
+echo "took ", getMonoTime() - t0
+exit(Weave)

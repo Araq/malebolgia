@@ -107,14 +107,17 @@ proc download(url: string; master: ptr Master) =
 
 seen.incl StartUrl
 
-import std / times
+import std / monotimes
 
-let t0 = getTime()
+let t0 = getMonoTime()
 
 for i in 0..<4000:
   var master = createMaster() #timeout=initDuration(seconds=10))
   master.awaitAll:
     master.spawn download(StartUrl, addr master)
 
-echo "took ", getTime() - t0
+echo "took ", getMonoTime() - t0
 echo "seen links ", seen.len
+
+# took 834 milliseconds and 679 microseconds
+# seen links 46

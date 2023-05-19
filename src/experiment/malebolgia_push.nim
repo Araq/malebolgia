@@ -68,6 +68,7 @@ type
     L: Lock
     head, tail, count: int
     data: array[FixedChanSize, PoolTask]
+    ready: Atomic[bool]
 
 var
   thr: array[ThreadPoolSize, Thread[int]]
@@ -95,8 +96,7 @@ proc probeWorkers(): int =
   # round robin scheduling, but starting with our direct neighbor:
   var i = (myself + 1) and ThreadPoolMask
   while i != myself:
-    if chans[i].count < FixedChanSize:
-      # XXX .load(moRelaxed) < FixedChanSize:
+    if chans[i].ready.load(moRelaxed):
       return i
     i = (i + 1) and ThreadPoolMask
   return -1
@@ -155,7 +155,9 @@ proc worker(self: int) {.thread.} =
   while not globalStopToken.load(moRelaxed):
     acquire(chans[self].L)
     while chans[self].count == 0:
+      chans[self].ready.store(true, moRelaxed)
       wait(chans[self].dataAvailable, chans[self].L)
+    chans[self].ready.store(false, moRelaxed)
     drain chans[self]
 
 

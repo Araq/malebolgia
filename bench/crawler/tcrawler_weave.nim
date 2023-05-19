@@ -106,16 +106,17 @@ proc download(url: string) =
 
 seen.incl StartUrl
 
-import std / times
-
-let t0 = getTime()
+import std / monotimes
 
 init(Weave)
+let t0 = getMonoTime()
+
 for i in 0..<4000:
   syncScope:
     spawn download(StartUrl)
+echo "took ", getMonoTime() - t0
 exit(Weave)
-echo "took ", getTime() - t0
 echo "seen links ", seen.len
 
-# took 13 seconds, 77 milliseconds, 572 microseconds, and 100 nanoseconds
+# took 1 second, 311 milliseconds, 388 microseconds, and 250 nanoseconds
+# seen links 46

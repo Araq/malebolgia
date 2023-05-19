@@ -11,8 +11,8 @@ proc main() =
   let f = fib(n)
   echo f
 
-import std / times
+import std / monotimes
 
-let t0 = getTime()
+let t0 = getMonoTime()
 main()
-echo "took ", getTime() - t0
+echo "took ", getMonoTime() - t0

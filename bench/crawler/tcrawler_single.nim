@@ -103,13 +103,13 @@ proc download(url: string) =
 
 seen.incl StartUrl
 
-import std / times
+import std / monotimes
 
-let t0 = getTime()
+let t0 = getMonoTime()
 
 for i in 0..<4000:
   download(StartUrl)
-echo "took ", getTime() - t0
+echo "took ", getMonoTime() - t0
 echo "seen links ", seen.len
 
 # took 868 milliseconds and 828 microseconds
