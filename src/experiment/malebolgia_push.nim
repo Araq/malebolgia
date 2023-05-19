@@ -71,7 +71,7 @@ type
     ready: Atomic[bool]
 
 var
-  thr: array[ThreadPoolSize, Thread[int]]
+  thr: array[ThreadPoolSize-1, Thread[int]] # -1 because the main thread is working too
   chans: array[ThreadPoolSize, FixedChan]
   globalStopToken: Atomic[bool]
 
@@ -151,7 +151,6 @@ proc drain(chan: var FixedChan) =
 
 proc worker(self: int) {.thread.} =
   myself = self
-  var item: PoolTask
   while not globalStopToken.load(moRelaxed):
     acquire(chans[self].L)
     while chans[self].count == 0:
@@ -163,7 +162,8 @@ proc worker(self: int) {.thread.} =
 
 proc setup() =
   for i in 0..high(thr):
-    createThread(thr[i], worker, i)
+    createThread(thr[i], worker, i+1)
+  for i in 0..high(chans):
     initCond(chans[i].dataAvailable)
     initLock(chans[i].L)
 
@@ -172,7 +172,7 @@ proc panicStop*() =
   ## Stops all threads.
   globalStopToken.store(true, moRelaxed)
   joinThreads(thr)
-  for i in 0..high(thr):
+  for i in 0..high(chans):
     deinitCond(chans[i].dataAvailable)
     deinitLock(chans[i].L)
 
