@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta name="charset" content="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/assets/img/logo_bw.png" />
+
+  
+  <title>Unix installation - Nim Programming Language</title>
+  
+  <link rel="stylesheet" href="/assets/css/pure.min.css">
+  <link rel="stylesheet" href="/assets/css/pure-grids-responsive.min.css">
+  <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  
+  <link rel="stylesheet" href="/assets/css/highlight/github.css">
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Titillium+Web" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?t=1680767740708142505">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48159761-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script defer data-domain="nim-lang.org" src="https://plausible.io/js/plausible.js"></script>
+
+  <meta name="twitter:title" content="Unix installation">
+
+  
+  <meta name="twitter:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta property="og:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  
+
+  <meta name="twitter:site" content="@nim_lang">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://nim-lang.org/assets/img/twitter_banner.png">
+
+  <meta property="og:title" content="Unix installation" />
+  <meta property="og:site_name" content="Nim Programming Language" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://nim-lang.org/assets/img/twitter_banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1000" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:image:alt" content="Nim Programming Language" />
+</head>
+
+  <body class="site">
+    <header>
+  <nav class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+    <div class="nav-content">
+      <a href="/" class="pure-menu-heading pure-menu-link site-logo-container">
+        <img class="site-logo" src="/assets/img/logo.svg" height="28" alt="Nim">
+      </a>
+      <ul class="pure-menu-list">
+        
+        <li class="pure-menu-item">
+          <a href="/blog.html"
+             class="pure-menu-link ">
+            Blog
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/features.html"
+             class="pure-menu-link ">
+            Features
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/install.html"
+             class="pure-menu-link ">
+            Download
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/documentation.html"
+             class="pure-menu-link ">
+            Documentation
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="https://forum.nim-lang.org"
+             class="pure-menu-link ">
+            Forum
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/donate.html"
+             class="pure-menu-link ">
+            Donate
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/nim-lang/Nim">Source</a>
+        </li>
+      </ul>
+    </div>
+    <div class="menu-fade"></div>
+  </nav>
+</header>
+
+    <div class="site-content install_unix slim content">
+      <h1 class="text-centered page-title main-heading">Install Nim on Unix</h1>
+
+<h1 id="installation-using-choosenim">Installation using <code class="highlighter-rouge">choosenim</code></h1>
+
+<p><a href="https://github.com/dom96/choosenim#choosenim"><code class="highlighter-rouge">choosenim</code></a> is an
+installer for the Nim programming language. It allows you
+to easily switch between versions of Nim, whether that is the latest stable
+release or the latest development version.</p>
+
+<p>To install the latest stable release of Nim using <code class="highlighter-rouge">choosenim</code>, just run the
+following in your terminal, then follow the onscreen instructions:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+</code></pre>
+</div>
+
+<h1 id="manual-installation">Manual installation</h1>
+
+<h2 id="pre-built-binaries-for-linux">Pre-built binaries for Linux</h2>
+
+<p>If you’re not sure which version (64-bit or 32-bit) to pick, it is very likely
+that you want the 64-bit version (x86_64):</p>
+
+<div class="center">
+  <a href="/download/nim-1.6.12-linux_x64.tar.xz" class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download x86_64 tarball
+  </a>
+  <a href="/download/nim-1.6.12-linux_x64.tar.xz.sha256" class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
+
+<p>If you know what you’re doing and you’re sure you need a 32-bit version,
+you can download it below:</p>
+
+<div class="center">
+  <a href="/download/nim-1.6.12-linux_x32.tar.xz" class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download x86 tarball
+  </a>
+  <a href="/download/nim-1.6.12-linux_x32.tar.xz.sha256" class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
+
+<h2 id="source-archive">Source archive</h2>
+
+<div class="center">
+  <a href="/download/nim-1.6.12.tar.xz" class="pure-button pure-button-primary download-button">
+    <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+    Download source tarball
+  </a>
+  <a href="/download/nim-1.6.12.tar.xz.sha256" class="pure-button">
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+    SHA256
+  </a>
+</div>
+
+<p>After downloading the compressed archive, extract its contents into the
+desired installation directory. Pre-built binaries are provided in the
+binary distribution.</p>
+
+<p>For the source distribution, open a new terminal window, <code class="highlighter-rouge">cd</code> into the
+extracted directory, and execute the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sh build.sh
+bin/nim c koch
+./koch boot -d:release
+./koch tools
+</code></pre>
+</div>
+
+<h2 id="configuring-the-path-environment-variable-for-a-manual-installation">Configuring the <code class="highlighter-rouge">PATH</code> environment variable for a manual installation</h2>
+
+<p>The compiler and tool binaries live inside the <code class="highlighter-rouge">bin</code> directory.
+It is common for Nim developers to include two directories in their
+<a href="https://en.wikipedia.org/wiki/PATH_(variable)"><code class="highlighter-rouge">PATH</code> environment variable</a>:</p>
+
+<ul>
+  <li>the aforementioned <code class="highlighter-rouge">bin</code> directory</li>
+  <li><code class="highlighter-rouge">~/.nimble/bin</code> (where <code class="highlighter-rouge">~</code> is the home directory)</li>
+</ul>
+
+<h1 id="notes-about-compiler-dependencies">Notes about compiler dependencies</h1>
+
+<p>The Nim compiler needs a C compiler in order to compile software. You must
+install this separately and ensure that it is in your <code class="highlighter-rouge">PATH</code>.</p>
+
+<h2 id="macos">macOS</h2>
+
+<p>Simply install the latest version of <code class="highlighter-rouge">clang</code> available on your system.
+You can do this by:</p>
+
+<ul>
+  <li>Opening a new terminal window</li>
+  <li>Executing <code class="highlighter-rouge">xcode-select --install</code></li>
+  <li>Clicking on the “Install” button in the dialog box that appears.</li>
+</ul>
+
+<p><strong>Source:</strong> <a href="https://www.quora.com/How-do-I-successfully-set-up-LLVM-clang-on-Mac-OS-X-El-Capitan/answer/James-McInnes-1?srid=hq2O">Quora</a></p>
+
+<h2 id="linux">Linux</h2>
+
+<p>You probably already have a compiler installed. If not, use your package
+manager to install either <code class="highlighter-rouge">gcc</code> or <code class="highlighter-rouge">clang</code>.</p>
+
+<h2 id="other-dependencies">Other dependencies</h2>
+
+<p>There are a number of other dependencies that you may need to install in order
+to use Nim. They include:</p>
+
+<ul>
+  <li>PCRE</li>
+  <li>OpenSSL</li>
+</ul>
+
+<p>You can use your package manager to install these dependencies when
+necessary.</p>
+
+<h1 id="installation-using-package-managers">Installation using package managers</h1>
+
+<h2 id="arch-linux">Arch Linux</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pacman -S nim
+</code></pre>
+</div>
+
+<h2 id="debian--ubuntu">Debian / Ubuntu</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install nim
+</code></pre>
+</div>
+
+<h2 id="docker">Docker</h2>
+
+<p>The community managed <a href="https://hub.docker.com/r/nimlang/nim/">Docker images</a>
+are published on Docker Hub and include
+the compiler and Nimble. There are images for standalone scripts as well as
+Nimble packages.</p>
+
+<p>Get the latest stable image:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>docker pull nimlang/nim
+</code></pre>
+</div>
+
+<p>The latest development version:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>docker pull nimlang/nim:devel
+</code></pre>
+</div>
+
+<h2 id="freebsd">FreeBSD</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pkg install nim
+</code></pre>
+</div>
+
+<h2 id="macos-1">macOS</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>brew install nim
+</code></pre>
+</div>
+
+<h2 id="openbsd">OpenBSD</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pkg_add nim
+</code></pre>
+</div>
+
+<h2 id="opensuse">openSUSE</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>zypper in nim
+</code></pre>
+</div>
+
+<h2 id="void-linux">Void Linux</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>xbps-install -S nim
+</code></pre>
+</div>
+
+    </div>
+    <footer>
+  <section class="content">
+    <div class="pure-g">
+      <div class="copyright pure-u-2-3">
+        <p>
+          Unless otherwise stated, the content of this page is
+          licensed under the
+          <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>
+          license.
+          Code displayed on this website is MIT licensed.
+        </p>
+        <p>
+          This website is available on
+          <a href="https://github.com/nim-lang/website">GitHub</a>
+          and contributions are welcome.
+          Original website design by
+          <a href="https://github.com/dom96">Dominik Picheta</a> and
+          <a href="https://github.com/Calinou">Hugo Locurcio</a>.
+          Logo by <a href="https://github.com/josephwecker">Joseph Wecker</a>.
+        </p>
+      </div>
+      <div class="pure-u-1-3 right-center">
+        <a href="https://m.do.co/c/637ab907c7f4"><img src="/assets/img/do.png"/></a>
+      </div>
+    </div>
+  </section>
+
+</footer>
+<script>
+    (function(){
+      function setTracking(a) {
+        var url = a.href;
+        a.onclick = function() {
+          if (typeof(ga) !== "undefined") {
+            ga('send', 'event', 'outbound', 'click', url, {
+              'transport': 'beacon',
+              'hitCallback': function(){document.location = url;}
+            });
+          }
+        };
+      }
+
+      var a = document.getElementsByTagName("a");
+      for (var i = 0; i < a.length; ++i) {
+        if (a[i].hostname != location.hostname &&
+            a[i].getAttribute("target") !== "_blank"
+        ) {
+          setTracking(a[i])
+        }
+      }
+    })();
+</script>
+
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7c9b4a288dc69195","version":"2023.4.0","r":1,"token":"8274044078fb43adb1664c1fd234c4e9","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

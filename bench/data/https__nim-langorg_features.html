@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta name="charset" content="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/assets/img/logo_bw.png" />
+
+  
+  <title>Features - Nim Programming Language</title>
+  
+  <link rel="stylesheet" href="/assets/css/pure.min.css">
+  <link rel="stylesheet" href="/assets/css/pure-grids-responsive.min.css">
+  <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  
+  <link rel="stylesheet" href="/assets/css/highlight/github.css">
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Titillium+Web" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?t=1680767740708142505">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48159761-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script defer data-domain="nim-lang.org" src="https://plausible.io/js/plausible.js"></script>
+
+  <meta name="twitter:title" content="Features">
+
+  
+  <meta name="twitter:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta property="og:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  
+
+  <meta name="twitter:site" content="@nim_lang">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://nim-lang.org/assets/img/twitter_banner.png">
+
+  <meta property="og:title" content="Features" />
+  <meta property="og:site_name" content="Nim Programming Language" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://nim-lang.org/assets/img/twitter_banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1000" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:image:alt" content="Nim Programming Language" />
+</head>
+
+  <body class="site">
+    <header>
+  <nav class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+    <div class="nav-content">
+      <a href="/" class="pure-menu-heading pure-menu-link site-logo-container">
+        <img class="site-logo" src="/assets/img/logo.svg" height="28" alt="Nim">
+      </a>
+      <ul class="pure-menu-list">
+        
+        <li class="pure-menu-item">
+          <a href="/blog.html"
+             class="pure-menu-link ">
+            Blog
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/features.html"
+             class="pure-menu-link current">
+            Features
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/install.html"
+             class="pure-menu-link ">
+            Download
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/documentation.html"
+             class="pure-menu-link ">
+            Documentation
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="https://forum.nim-lang.org"
+             class="pure-menu-link ">
+            Forum
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/donate.html"
+             class="pure-menu-link ">
+            Donate
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/nim-lang/Nim">Source</a>
+        </li>
+      </ul>
+    </div>
+    <div class="menu-fade"></div>
+  </nav>
+</header>
+
+    <div class="site-content features">
+        <h1 class="text-centered page-title main-heading">Features</h1>
+
+  <section class="content">
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <h1>Intuitive and clean syntax</h1>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 code-align">
+        <h2>
+          Taking inspiration from multiple languages, the Nim syntax is
+          easily understood and results in code that can be modified very
+          effectively.
+        </h2>
+        <ul>
+          <li>Indentation significant syntax</li>
+          <li>Multiple constructs inspired by Python</li>
+          <li>Multi-line lambdas</li>
+          <li>It combines successful concepts from Ada and Modula.</li>
+        </ul>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 center">
+        <figure class="highlight"><pre><code class="language-nim" data-lang="nim"><span class="k">import</span> <span class="n">strformat</span>
+<span class="k">type</span>
+  <span class="n">Person</span> <span class="o">=</span> <span class="k">object</span>
+    <span class="n">name</span><span class="o">*</span><span class="p">:</span> <span class="kt">string</span> <span class="c"># Field is exported using `*`.</span>
+    <span class="n">age</span><span class="p">:</span> <span class="n">Natural</span>  <span class="c"># Natural type ensures the age is positive.</span>
+
+<span class="k">var</span> <span class="n">people</span> <span class="o">=</span> <span class="o">[</span>
+  <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">"John"</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">),</span>
+  <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">"Kate"</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="mi">30</span><span class="p">)</span>
+<span class="o">]</span>
+
+<span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
+  <span class="c"># Type-safe string interpolation.</span>
+  <span class="n">echo</span><span class="p">(</span><span class="s">fmt"{person.name} is {person.age} years old"</span><span class="p">)</span></code></pre></figure>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="background-faded call-to-action">
+    <section class="content text-centered">
+      <h2>Support for multiple operating systems</h2>
+      <div class="pure-g center">
+        <div class="pure-u-1">
+          <i class="fab fa-windows fa-5x" aria-hidden="true"></i>
+          <i class="fab fa-apple fa-5x" aria-hidden="true"></i>
+          <i class="fab fa-linux fa-5x" aria-hidden="true"></i>
+        </div>
+        <div class="pure-u-1-2">
+          <p>
+            Nim supports every mainstream operating system and platform as
+            well as multiple niche platforms. We take pride in supporting all
+            three major operating systems fully.
+          </p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="content">
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <h1 id="javascript-compilation">JavaScript compilation</h1>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 code-align">
+        <h2>
+          Nim includes a first-class JavaScript backend so you can target the
+          client and server effortlessly at the same time.
+        </h2>
+        <div class="center">
+          <script type="text/javascript" src="https://picheta.me/snake/snake.js"></script>
+
+          <link rel="stylesheet" type="text/css" href="https://picheta.me/snake/snake.css">
+          <style>
+            #snake_center {
+              width: 402px;
+              margin-top: 30pt;
+              height: 400px;
+            }
+
+            #snake_center > p {
+              width: 100%;
+              margin-bottom: 0;
+            }
+          </style>
+          <div id="snake_center">
+            <div id="snake">
+              <canvas id="snake_canvas"></canvas>
+              <div id="snake_controls">
+                <span><b>New Game:</b> N</span>
+                <span><b>Play/Pause: </b> P</span>
+                <span><b>Controls: </b> ← → ↑ ↓</span>
+              </div>
+            </div>
+            <p>
+              The above game is written in Nim, compiled using the JavaScript
+              backend and drawn using the canvas API.
+            </p>
+            <p>
+              <b>Source code: </b>
+              <a href="https://github.com/dom96/snake">https://github.com/dom96/snake</a>
+            </p>
+            <p>
+              <b>Game website: </b>
+              <a href="http://picheta.me/snake">http://picheta.me/snake</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 center">
+          <figure class="highlight"><pre><code class="language-nim" data-lang="nim"><span class="k">import</span> <span class="n">dom</span>
+
+<span class="k">proc </span><span class="nf">onLoad</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">p</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s">"p"</span><span class="p">)</span>
+  <span class="n">p</span><span class="p">.</span><span class="n">innerHTML</span> <span class="o">=</span> <span class="s">"Click me!"</span>
+  <span class="n">p</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">fontFamily</span> <span class="o">=</span> <span class="s">"Helvetica"</span>
+  <span class="n">p</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="s">"red"</span>
+
+  <span class="n">p</span><span class="p">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s">"click"</span><span class="p">,</span>
+    <span class="k">proc</span> <span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">=</span>
+      <span class="n">window</span><span class="p">.</span><span class="n">alert</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">)</span>
+  <span class="p">)</span>
+
+  <span class="n">document</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">window</span><span class="p">.</span><span class="n">onload</span> <span class="o">=</span> <span class="n">onLoad</span></code></pre></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="background-faded call-to-action">
+    <section class="content metaprogramming">
+      <div class="pure-g">
+        <div class="pure-u-1">
+          <h2 id="small-core-with-extensibility">Small core with a rich prospect for extensibility</h2>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2">
+          <p>
+          Nim implements a small core language with a powerful
+          set of metaprogramming features.
+          </p>
+          <p>
+          The metaprogramming features in Nim include support for generics,
+          templates, and macros. This allows Nim to be extended with support
+          for various programming paradigms and allows developers to avoid
+          boilerplate. The standard library
+          implements async await using these metaprogramming features and
+          the Nim community has developed various packages implementing
+          different programming paradigms.
+          </p>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 center">
+          <figure class="highlight"><pre><code class="language-nim" data-lang="nim"><span class="k">import</span> <span class="n">macros</span><span class="p">,</span> <span class="n">strutils</span>
+
+<span class="k">macro</span> <span class="n">toEnum</span><span class="p">(</span><span class="n">words</span><span class="p">:</span> <span class="k">static</span><span class="o">[</span><span class="kt">string</span><span class="o">]</span><span class="p">):</span> <span class="n">untyped</span> <span class="o">=</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">newTree</span><span class="p">(</span><span class="n">nnkEnumTy</span><span class="p">,</span> <span class="n">newEmptyNode</span><span class="p">())</span>
+
+  <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">splitWhitespace</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">add</span> <span class="n">ident</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+<span class="k">type</span>
+  <span class="n">Color</span> <span class="o">=</span> <span class="s">toEnum"Red Green Blue Indigo"</span>
+
+<span class="k">var</span> <span class="n">color</span> <span class="o">=</span> <span class="n">Indigo</span></code></pre></figure>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="content nimble">
+    <div class="pure-g">
+      <div class="pure-u-1 center">
+        <h1 id="decentralised-package-management">Decentralised package management</h1>
+      </div>
+      <div class="pure-u-1 center">
+        <img height="150px" src="/assets/img/nimble.svg"/>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 code-align">
+        <h2>
+          The Nim package manager is called Nimble. Packages
+          are distributed via Git and Mercurial repositories, and tags are
+          queried remotely to determine version information.
+        </h2>
+        <p>
+        A mapping between package names and repository URLs is defined in a
+        <code>packages.json</code> file that is stored on
+        <a href="https://github.com/nim-lang/packages">GitHub</a>.
+        </p>
+        <p>
+        Packages are defined using a
+        specially formatted <code>.nimble</code> file that is evaluated by the
+        Nim compiler. This means that it supports a large subset of the
+        Nim programming language, allowing various powerful features including
+        the ability to determine the OS and specify external dependencies.
+        </p>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 center">
+        <figure class="highlight"><pre><code class="language-nim" data-lang="nim"><span class="c"># Package</span>
+
+<span class="n">version</span>       <span class="o">=</span> <span class="s">"v0.1.0"</span>
+<span class="n">author</span>        <span class="o">=</span> <span class="s">"Benedict Cumberbatch"</span>
+<span class="n">description</span>   <span class="o">=</span> <span class="s">"Sample package."</span>
+<span class="n">license</span>       <span class="o">=</span> <span class="s">"MIT"</span>
+
+<span class="c"># Dependencies</span>
+<span class="n">requires</span> <span class="s">"nim &gt;= 0.13.0"</span><span class="p">,</span> <span class="s">"jester &gt;= 0.1.0"</span>
+
+<span class="k">import</span> <span class="n">distros</span>
+<span class="k">if</span> <span class="n">detectOs</span><span class="p">(</span><span class="n">Ubuntu</span><span class="p">):</span>
+  <span class="n">foreignDep</span> <span class="s">"libssl-dev"</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">foreignDep</span> <span class="s">"openssl"</span>
+
+<span class="n">task</span> <span class="n">test</span><span class="p">,</span> <span class="s">"Run the tester!"</span><span class="p">:</span>
+  <span class="n">withDir</span> <span class="s">"tests"</span><span class="p">:</span>
+    <span class="n">exec</span> <span class="s">"nim c -r tester"</span></code></pre></figure>
+      </div>
+      <div class="pure-u-1 center">
+        <a class="pure-button pure-button-primary" href="https://github.com/nim-lang/nimble#readme">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="background-faded call-to-action">
+    <section class="content ffi">
+      <div class="pure-g center">
+        <div class="pure-u-1 center">
+          <h2 id="easy-c-obj-c-wrapping">Easy C, C++ <b>and</b> Objective C wrapping</h2>
+        </div>
+        <div class="pure-u-1 center">
+          <figure class="highlight"><pre><code class="language-nim" data-lang="nim"><span class="p">{.</span><span class="n">passL</span><span class="p">:</span> <span class="s">"-lsfml-graphics -lsfml-system -lsfml-window"</span><span class="p">.}</span>
+
+<span class="k">type</span>
+  <span class="n">VideoMode</span><span class="o">*</span> <span class="p">{.</span><span class="n">importcpp</span><span class="p">:</span> <span class="s">"sf::VideoMode"</span><span class="p">.}</span> <span class="o">=</span> <span class="k">object</span>
+  <span class="n">RenderWindowObj</span> <span class="p">{.</span><span class="n">importcpp</span><span class="p">:</span> <span class="s">"sf::RenderWindow"</span><span class="p">.}</span> <span class="o">=</span> <span class="k">object</span>
+  <span class="n">RenderWindow</span><span class="o">*</span> <span class="o">=</span> <span class="k">ptr</span> <span class="n">RenderWindowObj</span>
+  <span class="n">Color</span><span class="o">*</span> <span class="p">{.</span><span class="n">importcpp</span><span class="p">:</span> <span class="s">"sf::Color"</span><span class="p">.}</span> <span class="o">=</span> <span class="k">object</span>
+  <span class="n">Event</span><span class="o">*</span> <span class="p">{.</span><span class="n">importcpp</span><span class="p">:</span> <span class="s">"sf::Event"</span><span class="p">.}</span> <span class="o">=</span> <span class="k">object</span>
+
+<span class="p">{.</span><span class="n">push</span> <span class="n">cdecl</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="s">"&lt;SFML/Graphics.hpp&gt;"</span><span class="p">.}</span>
+<span class="p">{.</span><span class="n">push</span> <span class="n">importcpp</span><span class="p">.}</span>
+
+<span class="k">proc </span><span class="nf">videoMode</span><span class="o">*</span><span class="p">(</span><span class="n">modeWidth</span><span class="p">,</span> <span class="n">modeHeight</span><span class="p">:</span> <span class="n">cuint</span><span class="p">,</span>
+                <span class="n">modeBitsPerPixel</span><span class="p">:</span> <span class="n">cuint</span> <span class="o">=</span> <span class="mi">32</span><span class="p">):</span> <span class="n">VideoMode</span>
+<span class="k">proc </span><span class="nf">newRenderWindow</span><span class="o">*</span><span class="p">(</span><span class="n">mode</span><span class="p">:</span> <span class="n">VideoMode</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">cstring</span><span class="p">):</span> <span class="n">RenderWindow</span>
+<span class="k">proc </span><span class="nf">pollEvent</span><span class="o">*</span><span class="p">(</span><span class="n">window</span><span class="p">:</span> <span class="n">RenderWindow</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="k">var</span> <span class="n">Event</span><span class="p">):</span> <span class="kt">bool</span>
+<span class="k">proc </span><span class="nf">newColor</span><span class="o">*</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="n">uint8</span><span class="p">):</span> <span class="n">Color</span>
+<span class="k">proc </span><span class="nf">clear</span><span class="o">*</span><span class="p">(</span><span class="n">window</span><span class="p">:</span> <span class="n">RenderWindow</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="n">Color</span><span class="p">)</span>
+<span class="k">proc </span><span class="nf">display</span><span class="o">*</span><span class="p">(</span><span class="n">window</span><span class="p">:</span> <span class="n">RenderWindow</span><span class="p">)</span></code></pre></figure>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 center">
+          <p>
+          Nim makes it easy to bind to C, C++ and Objective C libraries.
+          This allows developers to easily access a large ecosystem of
+          mature and powerful libraries.
+          </p>
+        </div>
+        <div class="pure-u-1 center">
+          <a class="pure-button pure-button-primary" href="https://nim-lang.org/docs/manual.html#implementation-specific-pragmas-importcpp-pragma">Learn more</a>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="content">
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <h1 id="helpful-tracebacks">Helpful tracebacks</h1>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 code-align">
+        <h2>
+          Inspired by Python.
+        </h2>
+        <p>
+        When a Nim application crashes with an exception,
+        it will output a stack trace before terminating. The format of this
+        stack trace is very easy to grasp and contains all the required
+        information to debug the exception.
+        </p>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 center">
+        <figure class="highlight"><pre><code class="language-plain" data-lang="plain">Traceback (most recent call last)
+module.nim(10)           module
+module.nim(8)            readData
+strutils.nim             parseInt
+Error: unhandled exception:
+       invalid integer: Hello World [ValueError]</code></pre></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="background-faded call-to-action">
+    <section class="content text-centered">
+      <h2>More questions? See the
+        <a href="/faq.html">FAQ</a>
+      </h2>
+    </section>
+  </section>
+
+    </div>
+    <footer>
+  <section class="content">
+    <div class="pure-g">
+      <div class="copyright pure-u-2-3">
+        <p>
+          Unless otherwise stated, the content of this page is
+          licensed under the
+          <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>
+          license.
+          Code displayed on this website is MIT licensed.
+        </p>
+        <p>
+          This website is available on
+          <a href="https://github.com/nim-lang/website">GitHub</a>
+          and contributions are welcome.
+          Original website design by
+          <a href="https://github.com/dom96">Dominik Picheta</a> and
+          <a href="https://github.com/Calinou">Hugo Locurcio</a>.
+          Logo by <a href="https://github.com/josephwecker">Joseph Wecker</a>.
+        </p>
+      </div>
+      <div class="pure-u-1-3 right-center">
+        <a href="https://m.do.co/c/637ab907c7f4"><img src="/assets/img/do.png"/></a>
+      </div>
+    </div>
+  </section>
+
+</footer>
+<script>
+    (function(){
+      function setTracking(a) {
+        var url = a.href;
+        a.onclick = function() {
+          if (typeof(ga) !== "undefined") {
+            ga('send', 'event', 'outbound', 'click', url, {
+              'transport': 'beacon',
+              'hitCallback': function(){document.location = url;}
+            });
+          }
+        };
+      }
+
+      var a = document.getElementsByTagName("a");
+      for (var i = 0; i < a.length; ++i) {
+        if (a[i].hostname != location.hostname &&
+            a[i].getAttribute("target") !== "_blank"
+        ) {
+          setTracking(a[i])
+        }
+      }
+    })();
+</script>
+
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7c9b4a27ffd99a00","version":"2023.4.0","r":1,"token":"8274044078fb43adb1664c1fd234c4e9","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

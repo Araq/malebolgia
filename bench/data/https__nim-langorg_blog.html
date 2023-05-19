@@ -1,0 +1,3551 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta name="charset" content="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/assets/img/logo_bw.png" />
+
+  
+  <title>Blog - Nim Programming Language</title>
+  
+  <link rel="stylesheet" href="/assets/css/pure.min.css">
+  <link rel="stylesheet" href="/assets/css/pure-grids-responsive.min.css">
+  <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  
+  <link rel="stylesheet" href="/assets/css/highlight/github.css">
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Titillium+Web" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?t=1680767740708142505">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48159761-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script defer data-domain="nim-lang.org" src="https://plausible.io/js/plausible.js"></script>
+
+  <meta name="twitter:title" content="Blog">
+
+  
+  <meta name="twitter:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta property="og:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  
+
+  <meta name="twitter:site" content="@nim_lang">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://nim-lang.org/assets/img/twitter_banner.png">
+
+  <meta property="og:title" content="Blog" />
+  <meta property="og:site_name" content="Nim Programming Language" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://nim-lang.org/assets/img/twitter_banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1000" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:image:alt" content="Nim Programming Language" />
+</head>
+
+  <body class="site">
+    <header>
+  <nav class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+    <div class="nav-content">
+      <a href="/" class="pure-menu-heading pure-menu-link site-logo-container">
+        <img class="site-logo" src="/assets/img/logo.svg" height="28" alt="Nim">
+      </a>
+      <ul class="pure-menu-list">
+        
+        <li class="pure-menu-item">
+          <a href="/blog.html"
+             class="pure-menu-link current">
+            Blog
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/features.html"
+             class="pure-menu-link ">
+            Features
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/install.html"
+             class="pure-menu-link ">
+            Download
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/documentation.html"
+             class="pure-menu-link ">
+            Documentation
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="https://forum.nim-lang.org"
+             class="pure-menu-link ">
+            Forum
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/donate.html"
+             class="pure-menu-link ">
+            Donate
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/nim-lang/Nim">Source</a>
+        </li>
+      </ul>
+    </div>
+    <div class="menu-fade"></div>
+  </nav>
+</header>
+
+    <div class="site-content  slim content">
+      <section class="content slim">
+  <h1 class="main-heading page-title">Blog</h1>
+  <h2 class="text-centered page-subtitle">
+    Our blog is home to many articles consisting of announcements,
+    descriptions of the language, use cases and much more. You will find articles
+    written by both the Nim developers as well as guest authors.
+  </h2>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 April 2023
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2023/04/01/this-month-with-nim.html">This Month with Nim: March 2023</a>
+        </h2>
+        Ui bindings, Chess bots, Raylib binding updates. The list goes on, we swear!
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            31 March 2023
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2023/03/31/version-20-rc2.html">Version 2.0.0 RC2</a>
+        </h2>
+        <p>The second release candidate (RC2) for Nim version 2.0 is ready for testing.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            10 March 2023
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2023/03/10/version-1612-released.html">Version 1.6.12 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.6.12, our sixth patch release for
+Nim 1.6.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            02 March 2023
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2023/03/02/this-month-with-nim.html">This Month with Nim: Feburary 2023</a>
+        </h2>
+        A system monitor, internationalization macros, and a nimib update
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            11 January 2023
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2023/01/11/this-month-with-nim.html">This Month with Nim: November and December 2022</a>
+        </h2>
+        Cliche, WebRTC, Nimrun Action and p5nim
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            21 December 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/12/21/version-20-rc.html">Version 2.0.0 release candidate</a>
+        </h2>
+        <p>The first release candidate for Nim version 2.0 is ready for testing.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            23 November 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/11/23/version-1610-released.html">Version 1.6.10 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.6.10, our fifth patch release for
+Nim 1.6.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            11 November 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf (Araq)
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/11/11/a-cost-model-for-nim.html">A cost model for Nim</a>
+        </h2>
+        This blog post is the beginning of a cost model for the implementation that is available via `Nim devel` aka Nim version 2.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 November 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/11/01/this-month-with-nim.html">This Month with Nim: October 2022</a>
+        </h2>
+        Nim's Website Analytics, HTTP RPC, and TileEngine Bindings
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            21 October 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/10/21/nim-conference.html">NimConf 2022 - Nim Online Conference</a>
+        </h2>
+        NimConf 2022 will take place on October 22nd.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            05 October 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/10/05/this-month-with-nim.html">This Month with Nim: September 2022</a>
+        </h2>
+        Nodejs update, assignment macros, OpenSHMEM bindings, and a TCP monitor
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            27 September 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/09/27/version-168-released.html">Version 1.6.8 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.6.8, our fourth patch release for
+Nim 1.6.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            03 September 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/09/03/this-month-with-nim.html">This Month with Nim: June and July 2022</a>
+        </h2>
+        Home Automation, NimYAML 1.0, and a LaTeX like
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            29 June 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Araq
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/06/29/mastering-nim.html">Mastering Nim - now available on Amazon</a>
+        </h2>
+        My book 'Mastering Nim - A complete guide to the programming language' is now available on Amazon
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 June 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/06/01/this-month-with-nim.html">This Month with Nim: April and May 2022</a>
+        </h2>
+        Rest API templates, Fancy Strings, and terminal image rendering
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            05 May 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/05/05/version-166-released.html">Version 1.6.6 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.6.6, our third patch release for
+Nim 1.6.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            04 April 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/04/04/this-month-with-nim.html">This Month with Nim: Feburary and March 2022</a>
+        </h2>
+        Automatic C bindings, a Declarative GTK, Typesafe-ish macros, and a GameCube Emulator
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            08 February 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/02/08/version-164-released.html">Version 1.6.4 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.6.4, our second patch release for
+Nim 1.6.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            04 February 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            pietroppeter, pmunch, dom96
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/02/04/nim-devroom-fosdem-2022.html">Nim Devroom at FOSDEM 2022</a>
+        </h2>
+        Tomorrow (Sat, Feb 5th) there is a Nim Devroom at FOSDEM 2022
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 February 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/02/01/this-month-with-nim.html">This Month with Nim: January 2022</a>
+        </h2>
+        January and December introduced cool and interesting libraries.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            14 January 2022
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2022/01/14/community-survey-results-2021.html">Nim Community Survey 2021 Results</a>
+        </h2>
+        Here are the results of Nim Community Survey 2021.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            17 December 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/12/17/version-162-released.html">Version 1.6.2 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.6.2, our first patch release for
+Nim 1.6.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            02 December 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Peter Munch-Ellingsen (pmunch), Dominik Picheta (dom96), Pietro Peterlongo (pietroppeter)
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/12/02/fosdem-2022-cfp.html">Nim Devroom at FOSDEM 2022 - Call for Participation</a>
+        </h2>
+        This year Nim has its own developer room. Read more to learn about how to submit a talk!
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 December 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/12/01/this-month-with-nim.html">This Month with Nim: November 2021</a>
+        </h2>
+        November has brought one project, a blog post, and WASM-4 support.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            26 November 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/11/26/advent-of-nim-2021.html">Advent of Nim 2021</a>
+        </h2>
+        <p>Wednesday December 1st at 5 a.m. UTC will mark the start of the seventh incarnation
+of <a href="https://adventofcode.com/">Advent of Code</a>, popular programming contest
+started back in 2015.
+The author describes Advent of Code (AoC) as
+“<em>a series of small programming puzzles for a variety of skill sets and skill
+levels in any programming language you like</em>”.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            22 November 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/11/22/community-survey-2021.html">Launching the 2021 Nim Community Survey</a>
+        </h2>
+        <p>We are proud to announce the launch of the official
+<a href="https://forms.gle/dr7m9zS3rQbafG6i9">2021 Nim Community Survey</a>!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            15 November 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf (Araq), Pietro Peterlongo
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/11/15/zen-of-nim.html">Zen of Nim</a>
+        </h2>
+        Transcript of Zen of Nim presentation at NimConf2021
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            02 November 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/11/02/this-month-with-nim.html">This Month with Nim: October 2021</a>
+        </h2>
+        Six interesting projects our users worked on in October
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            25 October 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/10/25/nim-receives-100k-usd-bitcoin.html">Nim receives $100k in Bitcoin donations</a>
+        </h2>
+        Earlier this year we have had the privilege of receiving 1.868BTC (~117k USD at time of writing) to our long-standing Bitcoin wallet address.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            19 October 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/10/19/version-160-released.html">Version 1.6.0 released</a>
+        </h2>
+        <p>Nim version 1.6 is now officially released!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 October 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/10/01/this-month-with-nim.html">This Month with Nim: September 2021</a>
+        </h2>
+        Four interesting projects our users worked on in September
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 September 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/09/01/this-month-with-nim.html">This Month with Nim: August 2021</a>
+        </h2>
+        Three interesting projects our users worked on in August
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            28 July 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            W. Gordon Goodsman (GordonBGood)
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/07/28/Nim-Efficient-Expressive-Elegant-Benchmarking.html">Benchmarking the Beast</a>
+        </h2>
+        Benchmarking with the Sieve of Eratosthenes with efficient cache use 
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 July 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/07/01/this-month-with-nim.html">This Month with Nim: June 2021</a>
+        </h2>
+        Three interesting projects our users worked on in June
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            19 June 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/06/19/new-community-home.html">A New Home For Our Community</a>
+        </h2>
+        Take a look at some updates to our official IRC channel as well as new ways to connect to our community via Matrix.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            11 June 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/06/11/nim-conference.html">NimConf 2021 - Nim Online Conference</a>
+        </h2>
+        NimConf 2021 will take place in about two weeks from now -- on June 26th.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 June 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/06/01/this-month-with-nim.html">This Month with Nim: May 2021</a>
+        </h2>
+        Four interesting projects our users worked on in May
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            25 May 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/05/25/version-148-released.html">Version 1.4.8 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.4.8, our fourth patch release for
+Nim 1.4.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 May 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/05/01/this-month-with-nim.html">This Month with Nim: April 2021</a>
+        </h2>
+        Three interesting packages our users worked on in April
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            15 April 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/04/15/versions-146-and-1212-released.html">Versions 1.4.6 and 1.2.12 released</a>
+        </h2>
+        <p>The Nim team is happy to announce the double patch release of versions 1.2.12 and 1.4.6.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            02 April 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/04/02/this-month-with-nim.html">This Month with Nim: March 2021</a>
+        </h2>
+        Four interesting packages our users worked on in March
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            10 March 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            haxscramper
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/03/10/fusion-and-pattern-matching.html">Pattern matching in Nim</a>
+        </h2>
+        Nim fusion and pattern matching
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 March 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/03/01/this-month-with-nim.html">This Month with Nim: Feburary 2021</a>
+        </h2>
+        Five interesting packages our users worked on in Feburary
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            26 February 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Mamy Ratsimbazafy (mratsim)
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/02/26/multithreading-flavors.html">Multithreading flavors: Choosing the right scheduler for the right job</a>
+        </h2>
+        Demystifying multithreading for IO and multithreading for Compute.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            23 February 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/02/23/versions-144-and-1210-released.html">Versions 1.4.4 and 1.2.10 released</a>
+        </h2>
+        <p>The Nim team is happy to announce the double patch release of versions 1.2.10 and 1.4.4.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            03 February 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Community
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/02/03/this-month-with-nim.html">This Month with Nim: January 2021</a>
+        </h2>
+        Seven interesting packages our users worked on in January
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            26 January 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Jason Beetham
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/01/26/this-month-with-nim.html">This Month with Nim</a>
+        </h2>
+        I will be starting a monthly blog post for community showcase entitled 'This Month with Nim'.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            20 January 2021
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2021/01/20/community-survey-results-2020.html">Nim Community Survey 2020 Results</a>
+        </h2>
+        <p>The Nim community survey 2020 has been open for one month, and we have received 769 responses - we think this is a large enough sample to draw conclusions about our users and their habits.
+Before we go into details, we would like to thank all the people who took the time to respond.
+We really appreciate the feedback!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            28 December 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/12/28/nim-in-2020-a-short-recap.html">Nim in 2020: A short recap</a>
+        </h2>
+        <p>A lot has happened in the Nim world in 2020: two new major releases, two new
+memory managements strategies (ARC and ORC), the first Nim conference, and much more.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            17 December 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/12/17/community-survey-2020.html">Launching the 2020 Nim Community Survey</a>
+        </h2>
+        <p>We are proud to announce the launch of the official
+<a href="https://forms.gle/kEWvEeVyfxSHq9Uj8">2020 Nim Community Survey</a>!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            08 December 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Araq
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/12/08/introducing-orc.html">ORC - Vorsprung durch Algorithmen</a>
+        </h2>
+        ORC -  Algorithmic Advantages
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 December 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/12/01/version-142-released.html">Version 1.4.2 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.4.2, our first patch release for
+Nim 1.4.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            27 November 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/11/27/advent-of-nim-2020.html">Advent of Nim 2020</a>
+        </h2>
+        <p>Tuesday December 1st at 5 a.m. UTC will mark the start of the sixth incarnation
+of <a href="https://adventofcode.com/">Advent of Code</a>, popular programming contest
+started back in 2015.
+The author describes Advent of Code (AoC) as
+“<em>a series of small programming puzzles for a variety of skill sets and skill
+levels in any programming language you like</em>”.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            27 October 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/10/27/versions-128-and-1010-released.html">Versions 1.2.8 and 1.0.10 released</a>
+        </h2>
+        <p>The Nim team is happy to announce this double release of versions 1.2.8 and 1.0.10.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            16 October 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/10/16/version-140-released.html">Version 1.4.0 released</a>
+        </h2>
+        <p>We are very proud to announce Nim version 1.4 after six months of continuous development!
+Other than version 1.0, this is probably the biggest Nim release yet and we’re very excited to release it!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            15 October 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Danil Yarantsev (Yardanico)
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/10/15/introduction-to-arc-orc-in-nim.html">Introduction to ARC/ORC in Nim</a>
+        </h2>
+        Nim is advancing towards more efficient memory management models. Let's talk about ARC/ORC and see how they will change the way memory works in Nim.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 October 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/10/01/hacktoberfest-with-nim.html">Hacktoberfest with Nim</a>
+        </h2>
+        <p><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a> is an annual event happening in October which celebrates open source software and encourages meaningful contributions to the open source ecosystem.
+To win a T-shirt or plant a tree, you must sign up on the <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest site</a> and make four pull requests to any repo on Github by the end of October.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 September 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Araq
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/09/01/write-tracking.html">Write Tracking for Nim (Part 2)</a>
+        </h2>
+        <p>7 years ago I wrote how Nim would get <a href="https://nim-lang.org/araq/writetracking.html">“write
+tracking”</a>
+as an alternative to adding <code class="highlighter-rouge">const</code> to Nim’s type system.
+This year it finally made it into Nim nightly!
+Since then the feature was reimplemented and all the details how it works did change.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            30 July 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/07/30/versions-126-and-108-released.html">Versions 1.2.6 and 1.0.8 released</a>
+        </h2>
+        <p>The Nim team is happy to announce this double release of versions 1.2.6 and 1.0.8.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            30 June 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Mamy Ratsimbazafy (mratsim)
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/06/30/ray-tracing-in-nim.html">Ray tracing in Nim</a>
+        </h2>
+        I am convinced that if you want to start a rendering project from scratch, Nim is the best language to use.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            19 June 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/06/19/NimConf.html">NimConf 2020</a>
+        </h2>
+        <p>NimConf is happening on Saturday June 20th 2020, don’t miss it!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            17 June 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/06/17/version-122-released.html">Version 1.2.2 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.2.2, our first patch release for
+Nim 1.2.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            08 June 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Moerm
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/06/08/static-analysis.html">Static Analysis</a>
+        </h2>
+        Nim is in an excellent position to “get married” with static analysis, and it doesn’t have to be based on some intermediate representation but can achieve a solution more similar to Spark.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            14 May 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/05/14/nim-conference.html">Nim Online Conference 2020</a>
+        </h2>
+        <p>Mark the date: Saturday, June 20th 2020.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            03 April 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/04/03/version-120-released.html">Version 1.2.0 released</a>
+        </h2>
+        <p>We are very proud to announce Nim version 1.2 after six months of continuous development!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            18 February 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/02/18/community-survey-results-2019.html">Nim Community Survey 2019 Results</a>
+        </h2>
+        <p>Nim community survey 2019 has been open for 50 days, and we have received 908 responses, which is our record-high number (771 in 2018, 603 in 2017).
+Before we go into details, we would like to thank all the people who took the time to respond.
+We really appreciate the feedback!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            24 January 2020
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2020/01/24/version-106-released.html">Version 1.0.6 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.0.6, our third patch release following
+Nim 1.0.0.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            20 December 2019
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2019/12/20/community-survey-2019.html">Launching the 2019 Nim Community Survey</a>
+        </h2>
+        <p>We are proud to announce the launch of the official
+<a href="https://forms.gle/MM28istruU8YC7Fz9">2019 Nim Community Survey</a>!
+No matter whether you use Nim today, have used Nim previously, or never used Nim before;
+we want to know your opinions.
+Your feedback will help the Nim project understand its strengths and
+weaknesses, and to determine development priorities for the future.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            26 November 2019
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2019/11/26/version-104-released.html">Version 1.0.4 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.0.4, our second patch release following
+Nim 1.0.0.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            23 October 2019
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2019/10/23/version-102-released.html">Version 1.0.2 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 1.0.2, our first patch release following
+Nim 1.0.0.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            23 September 2019
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2019/09/23/version-100-released.html">Version 1.0 released</a>
+        </h2>
+        The Nim Team is very proud and happy to announce the much-anticipated version 1.0 of the language.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            17 July 2019
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2019/07/17/version-0202-released.html">Version 0.20.2 released</a>
+        </h2>
+        <p>The Nim team is happy to announce version 0.20.2, which is our second
+release candidate for version 1.0.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            06 June 2019
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2019/06/06/version-0200-released.html">Version 0.20.0 released</a>
+        </h2>
+        We are very proud to announce Nim version 0.20. This is a massive release, both literally and figuratively. It contains more than 1,000 commits and it marks our release candidate for version 1.0!
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            13 May 2019
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2019/05/13/version-0196-released.html">Version 0.19.6 released</a>
+        </h2>
+        <p>The Nim team is happy to announce that the latest release of Nim,
+version 0.19.6, is now available. Nim is a systems programming language that
+focuses on performance, portability and expressiveness.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 February 2019
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2019/02/01/version-0194-released.html">Version 0.19.4 released</a>
+        </h2>
+        <p>The Nim team is happy to announce that the latest release of Nim,
+version 0.19.4, is now available. Nim is a systems programming language that
+focuses on performance, portability and expressiveness.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            08 January 2019
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2019/01/08/nim-in-2018-a-short-recap.html">Nim in 2018: A short recap</a>
+        </h2>
+        <p>There were several big news in the Nim world in 2018 – two new major releases, partnership with Status, and much more.
+But let us go chronologically.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            31 December 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/12/31/version-0192-released.html">Version 0.19.2 released</a>
+        </h2>
+        <p>The Nim team is happy to announce that the latest release of Nim,
+version 0.19.2, is now available. Nim is a systems programming language that
+focuses on performance, portability and expressiveness.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            26 November 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/11/26/advent-of-nim.html">Advent of Nim</a>
+        </h2>
+        <p>Saturday December 1st at 5 a.m. UTC will mark the start of the fourth incarnation of <a href="https://adventofcode.com/">Advent of Code</a>, popular programming contest started back in 2015.
+The author describes Advent of Code (AoC) as “<em>a series of small programming puzzles for a variety of skill sets and skill levels in any programming language you like</em>”.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            27 October 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/10/27/community-survey-results-2018.html">Nim Community Survey 2018 Results</a>
+        </h2>
+        <p>We have recently closed the 2018 Nim Community Survey. I am happy to
+say that we have received exactly 771 responses, huge thanks to all the people
+that took the time to respond. We’re incredibly thankful for this very valuable
+feedback.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            25 October 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/10/25/hired-krux02.html">Welcome our new team member, Arne Döring!</a>
+        </h2>
+        We are glad that Arne Döring joined us as a fulltime core Nim developer.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 October 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/10/01/hacktoberfest-with-nim.html">Hacktoberfest with Nim</a>
+        </h2>
+        <p><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a> is an annual event happening in October which celebrates open source software and encourages meaningful contributions to the open source ecosystem.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            26 September 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/09/26/version-0190-released.html">Version 0.19.0 released</a>
+        </h2>
+        <p>The Nim team is happy to announce that the latest release of Nim,
+version 0.19.0, is now available. Nim is a systems programming language that
+focuses on performance, portability and expressiveness.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            11 September 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/09/11/nim-is-hiring.html">We&#39;re hiring!</a>
+        </h2>
+        This is your chance to get to work with one of the leading experts in compiler development, meta programming and language design.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            07 August 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/08/07/nim-partners-with-status.html">Nim partners with Status.im</a>
+        </h2>
+        We're incredibly excited to announce the new partnership between Status and Nim.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            23 June 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/06/23/community-survey-2018.html">Launching the 2018 Nim Community Survey</a>
+        </h2>
+        <p>We are proud to announce the launch of the official
+<a href="https://goo.gl/forms/t2gWWBEDC1walw6s2">2018 Nim Community Survey</a>! No matter
+whether you use Nim today, have used Nim previously, or never used Nim before;
+we want to know your opinions.
+Your feedback will help the Nim project understand its strengths and
+weaknesses, and to determine development priorities for the future.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            07 June 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Antonis Geralis
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/06/07/create-a-simple-macro.html">Creating a simple macro</a>
+        </h2>
+        Nim is a powerful programming language that supports metaprogramming using macros. Though a lot of Nim programmers are unaware of their merits due to lack of learning resources. The first part of this series will discuss the use of macros to simplify the creation of boilerplate code in Nim.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 March 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/03/01/version-0180-released.html">Version 0.18.0 released</a>
+        </h2>
+        <p>The Nim team is happy to announce that the latest release of Nim,
+version 0.18.0, is now available. Nim is a systems programming language that
+focuses on performance, portability and expressiveness.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            28 January 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/01/28/nim-is-coming-to-fosdem.html">Nim is coming to FOSDEM</a>
+        </h2>
+        In just under a week, FOSDEM 2018 will be taking place in Brussels
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            22 January 2018
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Valts Liepiņš
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2018/01/22/yes-command-in-nim.html">yes command in Nim</a>
+        </h2>
+        Recently I stumbled upon a post which takes a closer look at the `yes` command line tool. The main purpose of it is to write endless stream of a single letter `y` at a ridiculous speed.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            28 December 2017
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2017/12/28/nim-in-2017-a-short-recap.html">Nim in 2017: A short recap</a>
+        </h2>
+        <p>This year has been filled with some pretty major achievements for us, because
+of this I decided to write a little article summarising what we’ve accomplished
+in 2017 and to give a bit of a preview of what’s in store for 2018.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            02 October 2017
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2017/10/02/documenting-profiling-and-debugging-nim-code.html">A guide to documenting, profiling and debugging Nim code</a>
+        </h2>
+        This guide discusses some of the useful tools for documenting, profiling and debugging Nim code.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            01 October 2017
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2017/10/01/community-survey-results-2017.html">Nim Community Survey 2017 Results</a>
+        </h2>
+        <p>We have recently closed the 2017 Nim Community Survey. I am happy to
+say that we have received exactly 603 responses, huge thanks go to the people
+that took the time to respond. We’re incredibly thankful for this very valuable
+feedback.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            07 September 2017
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2017/09/07/version-0172-released.html">Version 0.17.2 released</a>
+        </h2>
+        <p>The Nim team is happy to announce that the latest release of Nim,
+version 0.17.2, is now available. Nim is a systems programming language that
+focuses on performance, portability and expressiveness.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            23 June 2017
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2017/06/23/community-survey-2017.html">Launching the 2017 Nim Community Survey</a>
+        </h2>
+        <p>We are proud to announce the launch of the official
+<a href="https://goo.gl/forms/0dxgbGFSnPpYlnCY2">2017 Nim Community Survey</a>! No matter
+whether you use Nim today, have used Nim previously, or never used Nim before;
+we want to know your opinions.
+Your feedback will help the Nim project understand its strengths and
+weaknesses, and to determine development priorities for the future.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            25 May 2017
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Euan Torano
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2017/05/25/faster-command-line-tools-in-nim.html">Faster Command Line Tools in Nim</a>
+        </h2>
+        <p><em>This is a guest post by Euan Torano cross-posted from <a href="https://www.euantorano.co.uk/posts/faster-command-line-tools-in-nim/">Faster Command Line Tools in Nim</a>. If you would like to publish articles as a guest author on nim-lang.org then get in touch with us via <a href="https://twitter.com/nim_lang">Twitter</a> or <a href="https://github.com/nim-lang/website/issues">otherwise</a>.</em></p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            17 May 2017
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2017/05/17/version-0170-released.html">Version 0.17.0 released</a>
+        </h2>
+        <p>The Nim team is happy to announce that the latest release of Nim,
+version 0.17.0, is now available. Nim is a systems programming language that
+focuses on performance, portability and expressiveness.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            08 January 2017
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            The Nim Team
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2017/01/08/version-0160-released.html">Version 0.16.0 released</a>
+        </h2>
+        <p>We’re happy to announce that the latest release of Nim, version 0.16.0, is now
+available!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            20 November 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/11/20/nim-in-action-in-production.html">Nim in Action is going into production!</a>
+        </h2>
+        I am very happy to say that just last week I have put the finishing touches on Nim in Action. The final manuscript has been submitted to Manning (the book's publisher), and the printed version is expected to start shipping in March 2017 (give or take 1 month).
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            23 October 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/10/23/version-0152-released.html">Version 0.15.2 released</a>
+        </h2>
+        <p>We’re happy to announce that the latest release of Nim, version 0.15.2, is now
+available!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            30 September 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/09/30/version-0150-released.html">Version 0.15.0 released</a>
+        </h2>
+        <p>We’re happy to announce that the latest release of Nim, version 0.15.0, is now
+available!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            03 September 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/09/03/community-survey-results-2016.html">Nim Community Survey Results</a>
+        </h2>
+        <p>We have recently closed the 2016 Nim Community Survey. I am happy to
+say that we have received exactly 790 responses, huge thanks go to the people
+that took the time to respond. We’re incredibly thankful for this very valuable
+feedback.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            06 August 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/08/06/bountysource-update-the-road-to-v10.html">BountySource Update: The Road to v1.0</a>
+        </h2>
+        <p><em>This was cross-posted from <a href="https://salt.bountysource.com/teams/nim/updates/4-the-road-to-v1-0">update #4</a> on BountySource.</em></p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            23 June 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/06/23/community-survey-2016.html">Launching the 2016 Nim Community Survey</a>
+        </h2>
+        <p>We are proud to announce the official
+<a href="http://goo.gl/forms/XJ3TPsaiIQe5HlTB2">2016 Nim Community Survey</a>! No matter
+whether you use Nim today, have used Nim previously, or never used Nim before;
+we want to know your opinions.
+Your feedback will help the Nim project understand its strengths and
+weaknesses, and to determine development priorities for the future.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            09 June 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/06/09/version-0142-released.html">Version 0.14.2 released</a>
+        </h2>
+        <p>Version 0.14.2 is just a bugfix release that fixes the most pressing
+regressions. In particular, the <code class="highlighter-rouge">tar.xz</code> now supports documentation
+generation, and the Windows installers bundle the latest stable nimble
+release.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            07 June 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/06/07/version-0140-released.html">Version 0.14.0 released</a>
+        </h2>
+        <p>It’s been a while since the last release, but we’ve been very busy in the
+meantime. In
+addition to working on Nim we have started a
+<a href="https://salt.bountysource.com/teams/nim">BountySource campaign</a> and
+announced the pre-release of a new Nim book titled
+<a href="https://manning.com/books/nim-in-action?a_aid=niminaction&amp;a_bid=78a27e81">Nim in Action</a>.
+Our BountySource campaign has already been very successful, helping us raise
+enough funds to surpass 4 of our monthly goals. The companies and individuals
+that made this possible are listed on our brand new
+<a href="http://nim-lang.org/sponsors.html">sponsors page</a>.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            04 June 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/06/04/meet-our-bountysource-sponsors.html">Meet our BountySource sponsors</a>
+        </h2>
+        It has now been two months since we began our fundraiser. Time to meet our current sponsors.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            27 January 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/01/27/nim-in-action-now-available.html">Nim in Action is now available!</a>
+        </h2>
+        We are proud to announce that Nim in Action, a book about the Nim programming language, is now available!
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            18 January 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/01/18/version-0130-released.html">Version 0.13.0 released</a>
+        </h2>
+        <p>Once again we are proud to announce the latest release of the Nim compiler
+and related tools. This release comes just 3 months after the last
+release!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            18 January 2016
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2016/01/18/oscon-conf-amsterdam.html">Andreas Rumpf&#39;s talk at OSCON Amsterdam</a>
+        </h2>
+        <p>In case you have missed it, here is Andreas’ Nim: An Overview talk at
+OSCON Amsterdam.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            27 October 2015
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2015/10/27/version-0120-released.html">Version 0.12.0 released</a>
+        </h2>
+        <p>The Nim community of developers is proud to announce the new version of the
+Nim compiler. This has been a long time coming as the last release has been
+made over 5 months ago!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            16 October 2015
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2015/10/16/first-nim-conference.html">First Nim conference</a>
+        </h2>
+        Learn about the first Nim workshop in Kyiv.
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            04 May 2015
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2015/05/04/version-0112-released.html">Version 0.11.2 released</a>
+        </h2>
+        <p>This is just a bugfix release that fixes the most pressing regressions we
+introduced with version 0.11.0. The way types are computed was
+changed significantly causing all sort of problems. Sorry for the
+inconvenience; we grew overconfident our large test suite would prevent these
+things.</p>
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            30 April 2015
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2015/04/30/version-0110-released.html">Version 0.11.0 released</a>
+        </h2>
+        <p>With this release we are one step closer to reaching version 1.0 and by
+extension the persistence of the Nim specification. As mentioned in the
+previous release notes, starting with version 1.0, we will not be introducing
+any more breaking changes to Nim.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            29 December 2014
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2014/12/29/version-0102-released.html">Version 0.10.2 released</a>
+        </h2>
+        <p>This release marks the completion of a very important change to the project:
+the official renaming from Nimrod to Nim. Version 0.10.2 contains many language
+changes, some of which may break your existing code. For your convenience, we
+added a new tool called <a href="/docs/nimfix.html">nimfix</a> that will help you convert your
+existing projects so that it works with the latest version of the compiler.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            09 December 2014
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2014/12/09/new-website.html">New website design!</a>
+        </h2>
+        <p>A brand new website including an improved forum is now live.
+All thanks go to Philip Witte and
+Dominik Picheta, Philip Witte for the design of the website (together with
+the logo) as well as the HTML and CSS code for his template, and Dominik Picheta
+for integrating Philip’s design with Nim’s forum. We’re sure you will
+agree that Philip’s design is beautiful.</p>
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            19 October 2014
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2014/10/19/version-096-released.html">Version 0.9.6 released</a>
+        </h2>
+        <p><strong>Note: 0.9.6 is the last release of Nimrod. The language is being renamed to
+Nim. Nim slightly breaks compatibility.</strong></p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            21 April 2014
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2014/04/21/version-094-released.html">Version 0.9.4 released</a>
+        </h2>
+        <p>The Nimrod development community is proud to announce the release of version
+0.9.4 of the Nimrod compiler and tools. <strong>Note: This release has to be
+considered beta quality! Lots of new features have been implemented but
+unfortunately some do not fulfill our quality standards yet.</strong></p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            11 February 2014
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2014/02/11/nimrod-features-in-dr-dobbs-journal.html">Nimrod Featured in Dr. Dobb&#39;s Journal</a>
+        </h2>
+        <p>Nimrod has been <a href="http://www.drdobbs.com/open-source/nimrod-a-new-systems-programming-languag/240165321">featured</a>
+as the cover story in the February 2014 issue of Dr. Dobb’s Journal.</p>
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            12 January 2014
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2014/01/12/andreas-rumpfs-talk.html">Andreas Rumpf&#39;s talk on Nimrod at Strange Loop 2013 is now online</a>
+        </h2>
+        <p>Andreas Rumpf presented <em>Nimrod: A New Approach to Metaprogramming</em> at
+<a href="https://thestrangeloop.com/sessions/nimrod-a-new-approach-to-meta-programming">Strange Loop 2013</a>.
+The <a href="http://www.infoq.com/presentations/nimrod">video and slides</a>
+of the talk are now available.</p>
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            20 May 2013
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Dominik Picheta
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2013/05/20/version-092-released.html">Version 0.9.2 released</a>
+        </h2>
+        <p>We are pleased to announce that version 0.9.2 of the Nimrod compiler has been
+released. This release has attracted by far the most contributions in comparison
+to any other release.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            23 September 2012
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2012/09/23/version-090-released.html">Version 0.9.0 released</a>
+        </h2>
+        <h2 id="summary">Summary</h2>
+<ul>
+  <li>Unsigned integers have been added.</li>
+  <li>The integer type promotion rules changed.</li>
+  <li>The template and macro system evolved.</li>
+  <li>Closures have been implemented.</li>
+  <li>Term rewriting macros have been implemented.</li>
+  <li>First steps to unify expressions and statements have been taken.</li>
+  <li>Symbol lookup rules in generics have become stricter to catch more errors.</li>
+</ul>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            09 February 2012
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2012/02/09/version-0814-released.html">Version 0.8.14 released</a>
+        </h2>
+        <p>Version 0.8.14 has been released!</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            10 July 2011
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2011/07/10/version-0812-released.html">Version 0.8.12 released</a>
+        </h2>
+        <h2 id="bugfixes">Bugfixes</h2>
+<ul>
+  <li>Bugfix: <code class="highlighter-rouge">httpclient</code> correct passes the path starting with <code class="highlighter-rouge">/</code>.</li>
+  <li>Bugfixes for the <code class="highlighter-rouge">htmlparser</code> module.</li>
+  <li>Bugfix: <code class="highlighter-rouge">pegs.find</code> did not respect <code class="highlighter-rouge">start</code> parameter.</li>
+  <li>Bugfix: <code class="highlighter-rouge">dialogs.ChooseFilesToOpen</code> did not work if only one file is
+selected.</li>
+  <li>Bugfix: niminst: <code class="highlighter-rouge">nimrod</code> is not default dir for <em>every</em> project.</li>
+  <li>Bugfix: Multiple yield statements in iterators did not cause local vars to be
+copied.</li>
+  <li>Bugfix: The compiler does not emit very inaccurate floating point literals
+anymore.</li>
+  <li>Bugfix: Subclasses are taken into account for <code class="highlighter-rouge">try except</code> matching.</li>
+  <li>Bugfix: Generics and macros are more stable. There are still known bugs left
+though.</li>
+  <li>Bugfix: Generated type information for tuples was sometimes wrong, causing
+random crashes.</li>
+  <li>Lots of other bugfixes: Too many to list them all.</li>
+</ul>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            20 October 2010
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2010/10/20/version-0810-released.html">Version 0.8.10 released</a>
+        </h2>
+        <h2 id="bugfixes">Bugfixes</h2>
+<ul>
+  <li>Bugfix: Command line parsing on Windows and <code class="highlighter-rouge">os.parseCmdLine</code> now adheres
+to the same parsing rules as Microsoft’s C/C++ startup code.</li>
+  <li>Bugfix: Passing a <code class="highlighter-rouge">ref</code> pointer to the untyped <code class="highlighter-rouge">pointer</code> type is invalid.</li>
+  <li>Bugfix: Updated <code class="highlighter-rouge">keyval</code> example.</li>
+  <li>Bugfix: <code class="highlighter-rouge">system.splitChunk</code> still contained code for debug output.</li>
+  <li>Bugfix: <code class="highlighter-rouge">dialogs.ChooseFileToSave</code> uses <code class="highlighter-rouge">STOCK_SAVE</code> instead of
+<code class="highlighter-rouge">STOCK_OPEN</code> for the GTK backend.</li>
+  <li>Bugfix: Various bugs concerning exception handling fixed.</li>
+  <li>Bugfix: <code class="highlighter-rouge">low(somestring)</code> crashed the compiler.</li>
+  <li>Bugfix: <code class="highlighter-rouge">strutils.endsWith</code> lacked range checking.</li>
+  <li>Bugfix: Better detection for AMD64 on Mac OS X.</li>
+</ul>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            14 March 2010
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2010/03/14/version-088-released.html">Version 0.8.8 released</a>
+        </h2>
+        <h2 id="bugfixes">Bugfixes</h2>
+<ul>
+  <li>The Posix version of <code class="highlighter-rouge">os.copyFile</code> has better error handling.</li>
+  <li>Fixed bug #502670 (underscores in identifiers).</li>
+  <li>Fixed a bug in the <code class="highlighter-rouge">parsexml</code> module concerning the parsing of
+<code class="highlighter-rouge">&lt;tag attr="value" /&gt;</code>.</li>
+  <li>Fixed a bug in the <code class="highlighter-rouge">parsexml</code> module concerning the parsing of
+enities like <code class="highlighter-rouge">&amp;ltXX</code>.</li>
+  <li><code class="highlighter-rouge">system.write(f: TFile, s: string)</code> now works even if <code class="highlighter-rouge">s</code> contains binary
+zeros.</li>
+  <li>Fixed a bug in <code class="highlighter-rouge">os.setFilePermissions</code> for Windows.</li>
+  <li>An overloadable symbol can now have the same name as an imported module.</li>
+  <li>Fixed a serious bug in <code class="highlighter-rouge">strutils.cmpIgnoreCase</code>.</li>
+  <li>Fixed <code class="highlighter-rouge">unicode.toUTF8</code>.</li>
+  <li>The compiler now rejects <code class="highlighter-rouge">'\n'</code> (use <code class="highlighter-rouge">"\n"</code> instead).</li>
+  <li><code class="highlighter-rouge">times.getStartMilsecs()</code> now works on Mac OS X.</li>
+  <li>Fixed a bug in <code class="highlighter-rouge">pegs.match</code> concerning start offsets.</li>
+  <li>Lots of other little bugfixes.</li>
+</ul>
+
+
+      </div>
+    </div>
+    <hr>
+  
+    <div class="pure-g news-item">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <div class="post-meta">
+          <span>
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            21 December 2009
+          </span>
+          
+          <span>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Andreas Rumpf
+          </span>
+          
+        </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <h2>
+          <a class="post-link" href="/blog/2009/12/21/version-086-released.html">Version 0.8.6 released</a>
+        </h2>
+        <p>The version jump from 0.8.2 to 0.8.6 acknowledges the fact that all development
+of the compiler is now done in Nimrod.</p>
+
+
+      </div>
+    </div>
+    <hr>
+  
+  <p class="feed-rss"><a href="/feed.xml">RSS feed</a></p>
+</section>
+
+    </div>
+    <footer>
+  <section class="content">
+    <div class="pure-g">
+      <div class="copyright pure-u-2-3">
+        <p>
+          Unless otherwise stated, the content of this page is
+          licensed under the
+          <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>
+          license.
+          Code displayed on this website is MIT licensed.
+        </p>
+        <p>
+          This website is available on
+          <a href="https://github.com/nim-lang/website">GitHub</a>
+          and contributions are welcome.
+          Original website design by
+          <a href="https://github.com/dom96">Dominik Picheta</a> and
+          <a href="https://github.com/Calinou">Hugo Locurcio</a>.
+          Logo by <a href="https://github.com/josephwecker">Joseph Wecker</a>.
+        </p>
+      </div>
+      <div class="pure-u-1-3 right-center">
+        <a href="https://m.do.co/c/637ab907c7f4"><img src="/assets/img/do.png"/></a>
+      </div>
+    </div>
+  </section>
+
+</footer>
+<script>
+    (function(){
+      function setTracking(a) {
+        var url = a.href;
+        a.onclick = function() {
+          if (typeof(ga) !== "undefined") {
+            ga('send', 'event', 'outbound', 'click', url, {
+              'transport': 'beacon',
+              'hitCallback': function(){document.location = url;}
+            });
+          }
+        };
+      }
+
+      var a = document.getElementsByTagName("a");
+      for (var i = 0; i < a.length; ++i) {
+        if (a[i].hostname != location.hostname &&
+            a[i].getAttribute("target") !== "_blank"
+        ) {
+          setTracking(a[i])
+        }
+      }
+    })();
+</script>
+
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7c9b4a2e5cd61b35","version":"2023.4.0","r":1,"token":"8274044078fb43adb1664c1fd234c4e9","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

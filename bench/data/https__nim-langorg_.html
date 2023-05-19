@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta name="charset" content="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/assets/img/logo_bw.png" />
+
+  
+  <title>Nim Programming Language</title>
+  
+  <link rel="stylesheet" href="/assets/css/pure.min.css">
+  <link rel="stylesheet" href="/assets/css/pure-grids-responsive.min.css">
+  <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  
+  <link rel="stylesheet" href="/assets/css/highlight/dracula.css">
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Titillium+Web" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?t=1680767740708142505">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48159761-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script defer data-domain="nim-lang.org" src="https://plausible.io/js/plausible.js"></script>
+
+  <meta name="twitter:title" content="Nim Programming Language">
+
+  
+  <meta name="twitter:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta property="og:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  
+
+  <meta name="twitter:site" content="@nim_lang">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://nim-lang.org/assets/img/twitter_banner.png">
+
+  <meta property="og:title" content="Nim Programming Language" />
+  <meta property="og:site_name" content="Nim Programming Language" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://nim-lang.org/assets/img/twitter_banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1000" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:image:alt" content="Nim Programming Language" />
+</head>
+
+  <body class="site">
+    <header>
+  <nav class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+    <div class="nav-content">
+      <a href="/" class="pure-menu-heading pure-menu-link site-logo-container">
+        <img class="site-logo" src="/assets/img/logo.svg" height="28" alt="Nim">
+      </a>
+      <ul class="pure-menu-list">
+        
+        <li class="pure-menu-item">
+          <a href="/blog.html"
+             class="pure-menu-link ">
+            Blog
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/features.html"
+             class="pure-menu-link ">
+            Features
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/install.html"
+             class="pure-menu-link ">
+            Download
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/documentation.html"
+             class="pure-menu-link ">
+            Documentation
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="https://forum.nim-lang.org"
+             class="pure-menu-link ">
+            Forum
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/donate.html"
+             class="pure-menu-link ">
+            Donate
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/nim-lang/Nim">Source</a>
+        </li>
+      </ul>
+    </div>
+    <div class="menu-fade"></div>
+  </nav>
+</header>
+
+    <div class="site-content ">
+      <section class="main jumbotron">
+  <section class="main jumbotron"></section> <!-- hack to move everything down, without increasing padding -->
+  <section class="content">
+    <div class="pure-g">
+      <div class="pure-u-1 main-block">
+        <h1>Efficient, expressive, elegant</h1>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-5 main-block">
+        <h2>
+          Nim is a statically typed compiled systems programming language.
+          It combines successful concepts from mature languages like Python,
+          Ada and Modula.
+        </h2>
+        <div class="text-centered">
+          <a class="pure-button pure-button-primary" href="/install.html">Install Nim 1.6.12</a>
+          <a class="pure-button" href="https://play.nim-lang.org/#ix=2lK1">Try it online</a>
+        </div>
+        <h3>Efficient</h3>
+        <ul>
+          <li>Nim generates native dependency-free executables, not dependent on a virtual machine,
+              which are small and allow easy redistribution.</li>
+          <li>The Nim compiler and the generated executables support all major platforms like
+              Windows, Linux, BSD and macOS.</li>
+          <li>Nim's memory management is deterministic and customizable with destructors and move
+              semantics, inspired by C++ and Rust.
+              It is well-suited for embedded, hard-realtime systems.</li>
+          <li>Modern concepts like zero-overhead iterators and compile-time evaluation
+              of user-defined functions, in combination with the preference of value-based
+              datatypes allocated on the stack, lead to extremely performant code.</li>
+          <li>Support for various backends: it compiles to C, C++ or JavaScript so that Nim
+              can be used for all backend and frontend needs.</li>
+        </ul>
+        <h3>Expressive</h3>
+        <ul>
+          <li>Nim is self-contained: the compiler and the standard library are implemented in Nim.</li>
+          <li>Nim has a powerful macro system which allows direct manipulation of the AST,
+              offering nearly unlimited opportunities.</li>
+        </ul>
+        <h3>Elegant</h3>
+        <ul>
+          <li>Macros cannot change Nim's syntax because there is no need for it —
+              the syntax is flexible enough.</li>
+          <li>Modern type system with local type inference, tuples, generics and sum types.</li>
+          <li>Statements are grouped by indentation but can span multiple lines.</li>
+        </ul>
+      </div>
+
+      <div class="pure-u-1 pure-u-md-2-5">
+
+        <script>
+  /* Apply a style on all elements of a class except 1 with an specific id */
+  const showcodesample = (number) => {
+    "use strict";
+    const sampleCount = document.querySelectorAll("code.sample").length;
+    for (var i = 0 ; i < sampleCount ; i++) {
+      if (i === number) {
+        document.querySelector("code#sample" + i).style.display = "block";
+      } else {
+        document.querySelector("code#sample" + i).style.display = "none";
+      };
+    };
+  };
+</script>
+
+
+<select class="pure-button" onchange="showcodesample(this.selectedIndex)">
+  <optgroup label="Basic">
+    <option>Simple example</option>
+    <option>If…else, Case switch</option>
+    <option>Basic math</option>
+    <option>String operations</option>
+    <option>Comprehensions</option>
+    <!-- Add more examples by adding an option here -->
+  </optgroup>
+</select>
+
+
+<code id="sample0" class="sample">
+<figure class="highlight"><pre><code class="language-nim" data-lang="nim"><span class="k">import</span> <span class="n">std</span><span class="o">/</span><span class="n">strformat</span>
+
+<span class="k">type</span>
+  <span class="n">Person</span> <span class="o">=</span> <span class="k">object</span>
+    <span class="n">name</span><span class="p">:</span> <span class="kt">string</span>
+    <span class="n">age</span><span class="p">:</span> <span class="n">Natural</span> <span class="c"># Ensures the age is positive</span>
+
+<span class="k">let</span> <span class="n">people</span> <span class="o">=</span> <span class="o">[</span>
+  <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">"John"</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">),</span>
+  <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">"Kate"</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="mi">30</span><span class="p">)</span>
+<span class="o">]</span>
+
+<span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
+  <span class="c"># Type-safe string interpolation,</span>
+  <span class="c"># evaluated at compile time.</span>
+  <span class="n">echo</span><span class="p">(</span><span class="s">fmt"{person.name} is {person.age} years old"</span><span class="p">)</span>
+
+
+<span class="c"># Thanks to Nim's 'iterator' and 'yield' constructs,</span>
+<span class="c"># iterators are as easy to write as ordinary</span>
+<span class="c"># functions. They are compiled to inline loops.</span>
+<span class="k">iterator</span> <span class="n">oddNumbers</span><span class="o">[</span><span class="n">Idx</span><span class="p">,</span> <span class="n">T</span><span class="o">]</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="kt">array</span><span class="o">[</span><span class="n">Idx</span><span class="p">,</span> <span class="n">T</span><span class="o">]</span><span class="p">):</span> <span class="n">T</span> <span class="o">=</span>
+  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">mod</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="k">yield</span> <span class="n">x</span>
+
+<span class="k">for</span> <span class="n">odd</span> <span class="ow">in</span> <span class="n">oddNumbers</span><span class="p">(</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">18</span><span class="o">]</span><span class="p">):</span>
+  <span class="n">echo</span> <span class="n">odd</span>
+
+
+<span class="c"># Use Nim's macro system to transform a dense</span>
+<span class="c"># data-centric description of x86 instructions</span>
+<span class="c"># into lookup tables that are used by</span>
+<span class="c"># assemblers and JITs.</span>
+<span class="k">import</span> <span class="n">macros</span><span class="p">,</span> <span class="n">strutils</span>
+
+<span class="k">macro</span> <span class="n">toLookupTable</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="k">static</span><span class="o">[</span><span class="kt">string</span><span class="o">]</span><span class="p">):</span> <span class="n">untyped</span> <span class="o">=</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">newTree</span><span class="p">(</span><span class="n">nnkBracket</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">data</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sc">';'</span><span class="p">):</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">add</span> <span class="n">newLit</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+<span class="k">const</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="s">"mov;btc;cli;xor"</span>
+  <span class="n">opcodes</span> <span class="o">=</span> <span class="n">toLookupTable</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">opcodes</span><span class="p">:</span>
+  <span class="n">echo</span> <span class="n">o</span></code></pre></figure>
+</code>
+
+
+<code id="sample1" class="sample">
+<figure class="highlight"><pre><code class="language-nim" data-lang="nim"><span class="k">var</span> <span class="n">conditional</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="k">if</span> <span class="n">conditional</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">echo</span> <span class="s">"conditional &lt; 0"</span>
+<span class="k">elif</span> <span class="n">conditional</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">echo</span> <span class="s">"conditional &gt; 0"</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">echo</span> <span class="s">"conditional == 0"</span>
+
+<span class="k">var</span> <span class="n">ternary</span> <span class="o">=</span> <span class="k">if</span> <span class="n">conditional</span> <span class="o">==</span> <span class="mi">42</span><span class="p">:</span> <span class="kp">true</span> <span class="k">else</span><span class="p">:</span> <span class="kp">false</span>
+
+<span class="k">var</span> <span class="n">another</span> <span class="o">=</span>
+  <span class="k">if</span> <span class="n">conditional</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="s">"zero"</span>
+  <span class="k">elif</span> <span class="n">conditional</span> <span class="ow">mod</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="s">"even"</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="s">"odd"</span>
+
+
+<span class="c"># Case switch.</span>
+<span class="k">var</span> <span class="n">letter</span> <span class="o">=</span> <span class="sc">'c'</span>
+
+<span class="k">case</span> <span class="n">letter</span>
+<span class="k">of</span> <span class="sc">'a'</span><span class="p">:</span>
+  <span class="n">echo</span> <span class="s">"letter is 'a'"</span>
+<span class="k">of</span> <span class="sc">'b'</span><span class="p">,</span> <span class="sc">'c'</span><span class="p">:</span>
+  <span class="n">echo</span> <span class="s">"letter is 'b' or 'c'"</span>
+<span class="k">of</span> <span class="sc">'d'</span><span class="p">..</span><span class="sc">'h'</span><span class="p">:</span>
+  <span class="n">echo</span> <span class="s">"letter is between 'd' and 'h'"</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">echo</span> <span class="s">"letter is another character"</span></code></pre></figure>
+</code>
+
+
+<code id="sample2" class="sample">
+<figure class="highlight"><pre><code class="language-nim" data-lang="nim"><span class="k">import</span> <span class="n">std</span><span class="o">/</span><span class="n">math</span>
+
+<span class="c"># Basic math.</span>
+<span class="n">assert</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">3</span>        <span class="c"># Sum</span>
+<span class="n">assert</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">3</span>        <span class="c"># Subtraction</span>
+<span class="n">assert</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span>        <span class="c"># Multiplication</span>
+<span class="n">assert</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">==</span> <span class="mf">2.0</span>      <span class="c"># Division</span>
+<span class="n">assert</span> <span class="mi">4</span> <span class="ow">div</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">2</span>      <span class="c"># Integer Division</span>
+<span class="n">assert</span> <span class="mi">2</span> <span class="p">^</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">8</span>        <span class="c"># Power</span>
+<span class="n">assert</span> <span class="mi">4</span> <span class="ow">mod</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>      <span class="c"># Modulo</span>
+<span class="n">assert</span> <span class="p">(</span><span class="mi">2</span> <span class="ow">xor</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>    <span class="c"># XOR</span>
+<span class="n">assert</span> <span class="p">(</span><span class="mi">4</span> <span class="ow">shr</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>    <span class="c"># Shift Right</span>
+<span class="n">assert</span> <span class="n">PI</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">==</span> <span class="n">TAU</span>     <span class="c"># PI and TAU</span>
+<span class="n">assert</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.0</span>  <span class="c"># Square Root</span>
+<span class="n">assert</span> <span class="n">round</span><span class="p">(</span><span class="mf">3.5</span><span class="p">)</span> <span class="o">==</span> <span class="mf">4.0</span> <span class="c"># Round</span>
+<span class="n">assert</span> <span class="n">isPowerOfTwo</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>  <span class="c"># Powers of Two</span>
+<span class="n">assert</span> <span class="n">floor</span><span class="p">(</span><span class="mf">2.9</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.0</span> <span class="c"># Floor</span>
+<span class="n">assert</span> <span class="n">ceil</span><span class="p">(</span><span class="mf">2.9</span><span class="p">)</span> <span class="o">==</span> <span class="mf">3.0</span>  <span class="c"># Ceil</span>
+<span class="n">assert</span> <span class="n">cos</span><span class="p">(</span><span class="n">TAU</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.0</span>   <span class="c"># Cosine</span>
+<span class="n">assert</span> <span class="n">gcd</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>   <span class="c"># Greatest common divisor</span>
+<span class="n">assert</span> <span class="n">trunc</span><span class="p">(</span><span class="mf">1.75</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.0</span>     <span class="c"># Truncate</span>
+<span class="n">assert</span> <span class="n">floorMod</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>    <span class="c"># Floor Modulo</span>
+<span class="n">assert</span> <span class="n">floorDiv</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>    <span class="c"># Floor Division</span>
+<span class="n">assert</span> <span class="n">hypot</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">==</span> <span class="mf">5.0</span> <span class="c"># Hypotenuse</span>
+<span class="n">assert</span> <span class="n">gamma</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span> <span class="o">==</span> <span class="mf">6.0</span>      <span class="c"># Gamma function</span>
+<span class="n">assert</span> <span class="n">radToDeg</span><span class="p">(</span><span class="n">TAU</span><span class="p">)</span> <span class="o">==</span> <span class="mf">360.0</span> <span class="c"># Radians to Degrees</span>
+<span class="n">assert</span> <span class="n">clamp</span><span class="p">(</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">..</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.0</span> <span class="c"># Clamp</span>
+<span class="n">assert</span> <span class="n">almostEqual</span><span class="p">(</span><span class="n">PI</span><span class="p">,</span> <span class="mf">3.14159265358979</span><span class="p">)</span>
+<span class="n">assert</span> <span class="n">euclDiv</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>  <span class="c"># Euclidean Division</span>
+<span class="n">assert</span> <span class="n">euclMod</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>   <span class="c"># Euclidean Modulo</span></code></pre></figure>
+</code>
+
+
+<code id="sample3" class="sample">
+<figure class="highlight"><pre><code class="language-nim" data-lang="nim"><span class="k">import</span> <span class="n">std</span><span class="o">/[</span><span class="n">strutils</span><span class="p">,</span> <span class="n">strscans</span><span class="o">]</span>
+
+<span class="n">assert</span> <span class="s">"con"</span> <span class="o">&amp;</span> <span class="s">"cat"</span> <span class="o">==</span> <span class="s">"concat"</span>
+<span class="n">assert</span> <span class="s">"    a    "</span><span class="p">.</span><span class="n">strip</span> <span class="o">==</span> <span class="s">"a"</span>
+<span class="n">assert</span> <span class="s">"42"</span><span class="p">.</span><span class="n">parseInt</span> <span class="o">==</span> <span class="mi">42</span>
+<span class="n">assert</span> <span class="s">"3.14"</span><span class="p">.</span><span class="n">parseFloat</span> <span class="o">==</span> <span class="mf">3.14</span>
+<span class="n">assert</span> <span class="s">"0x666"</span><span class="p">.</span><span class="n">parseHexInt</span> <span class="o">==</span> <span class="mi">1638</span>
+<span class="n">assert</span> <span class="s">"TrUe"</span><span class="p">.</span><span class="n">parseBool</span> <span class="o">==</span> <span class="kp">true</span>
+<span class="n">assert</span> <span class="s">"0o777"</span><span class="p">.</span><span class="n">parseOctInt</span> <span class="o">==</span> <span class="mi">511</span>
+<span class="n">assert</span> <span class="s">"a"</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">==</span> <span class="s">"aaaaaaaaa"</span>
+<span class="n">assert</span> <span class="s">"abc"</span><span class="p">.</span><span class="n">startsWith</span><span class="p">(</span><span class="s">"ab"</span><span class="p">)</span>
+<span class="n">assert</span> <span class="s">"abc"</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s">"bc"</span><span class="p">)</span>
+<span class="n">assert</span> <span class="o">[</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="o">]</span><span class="p">.</span><span class="n">join</span> <span class="o">==</span> <span class="s">"abc"</span>
+<span class="n">assert</span> <span class="s">"abcd"</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"c"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="n">assert</span> <span class="s">"a x a y a z"</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="n">assert</span> <span class="s">"A__B__C"</span><span class="p">.</span><span class="n">normalize</span> <span class="o">==</span> <span class="s">"abc"</span>
+<span class="n">assert</span> <span class="s">"a,b"</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)</span> <span class="o">==</span> <span class="o">@[</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="o">]</span>
+<span class="n">assert</span> <span class="s">"a"</span><span class="p">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s">"  a  "</span>
+<span class="n">assert</span> <span class="s">"a"</span><span class="p">.</span><span class="n">indent</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="s">"    a"</span>
+<span class="n">assert</span> <span class="s">"    a"</span><span class="p">.</span><span class="n">unindent</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="s">"a"</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokenize</span><span class="p">(</span><span class="s">"This is an example"</span><span class="p">):</span>
+  <span class="n">echo</span> <span class="n">word</span>
+
+<span class="k">let</span> <span class="p">(</span><span class="n">ok</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span> <span class="o">=</span> <span class="n">scanTuple</span><span class="p">(</span><span class="s">"1000-01-01"</span><span class="p">,</span> <span class="s">"</span><span class="si">$i</span><span class="s">-</span><span class="si">$i</span><span class="s">-</span><span class="si">$i</span><span class="s">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">ok</span><span class="p">:</span>
+  <span class="n">assert</span> <span class="n">year</span> <span class="o">==</span> <span class="mi">1000</span>
+  <span class="n">assert</span> <span class="n">month</span> <span class="o">==</span> <span class="mi">1</span>
+  <span class="n">assert</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span></code></pre></figure>
+</code>
+
+
+<code id="sample4" class="sample">
+<figure class="highlight"><pre><code class="language-nim" data-lang="nim"><span class="k">import</span> <span class="n">std</span><span class="o">/[</span><span class="n">sugar</span><span class="p">,</span> <span class="n">tables</span><span class="p">,</span> <span class="n">sets</span><span class="p">,</span> <span class="n">sequtils</span><span class="p">,</span> <span class="n">strutils</span><span class="o">]</span>
+
+<span class="k">let</span> <span class="n">variable0</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">newSeq</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="o">@[-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="o">]</span><span class="p">:</span>
+    <span class="n">item</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="n">assert</span> <span class="n">variable0</span> <span class="o">==</span> <span class="o">@[-</span><span class="mi">18</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">18</span><span class="o">]</span>
+
+<span class="k">let</span> <span class="n">variable1</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">initTable</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="o">@[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="o">]</span><span class="p">:</span>
+    <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="ow">div</span> <span class="mi">2</span><span class="p">}</span>
+
+<span class="n">assert</span> <span class="n">variable1</span> <span class="o">==</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">}.</span><span class="n">toTable</span>
+
+<span class="k">let</span> <span class="n">variable2</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">initHashSet</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="o">@[-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="o">]</span><span class="p">:</span>
+    <span class="p">{</span><span class="n">item</span> <span class="o">+</span> <span class="n">item</span><span class="p">}</span>
+
+<span class="n">assert</span> <span class="n">variable2</span> <span class="o">==</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">]</span><span class="p">.</span><span class="n">toHashSet</span>
+
+<span class="n">assert</span> <span class="n">toSeq</span><span class="p">(</span><span class="mf">1</span><span class="p">..</span><span class="mi">15</span><span class="p">).</span><span class="n">mapIt</span><span class="p">(</span>
+    <span class="k">if</span> <span class="n">it</span> <span class="ow">mod</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="s">"FizzBuzz"</span>
+    <span class="k">elif</span> <span class="n">it</span> <span class="ow">mod</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="s">"Buzz"</span>
+    <span class="k">elif</span> <span class="n">it</span> <span class="ow">mod</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="s">"Fizz"</span>
+    <span class="k">else</span><span class="p">:</span> <span class="o">$</span><span class="n">it</span>
+  <span class="p">).</span><span class="n">join</span><span class="p">(</span><span class="s">" "</span><span class="p">).</span><span class="n">strip</span> <span class="o">==</span> <span class="s">"1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz"</span></code></pre></figure>
+</code>
+
+
+<!-- Add more examples by adding a code block here.
+  Examples must work on the latest "stable" version of Nim -->
+
+
+        <div class="text-centered">
+          <a href="http://rosettacode.org/wiki/Category:Nim">More examples at RosettaCode…</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</section>
+
+<section class="content">
+  <h1 class="section-heading">Recent articles</h1>
+  <div class="pure-g">
+    
+    <div class="news-item pure-u-1 pure-u-md-1-2">
+      <div class="post-meta">
+        <span>
+          <i class="far fa-calendar-alt" aria-hidden="true"></i>
+          01 April 2023
+        </span>
+      </div>
+      <h2>
+        <a class="post-link" href="/blog/2023/04/01/this-month-with-nim.html">This Month with Nim: March 2023</a>
+      </h2>
+      Ui bindings, Chess bots, Raylib binding updates. The list goes on, we swear!
+    </div>
+    
+    <div class="news-item pure-u-1 pure-u-md-1-2">
+      <div class="post-meta">
+        <span>
+          <i class="far fa-calendar-alt" aria-hidden="true"></i>
+          31 March 2023
+        </span>
+      </div>
+      <h2>
+        <a class="post-link" href="/blog/2023/03/31/version-20-rc2.html">Version 2.0.0 RC2</a>
+      </h2>
+      <p>The second release candidate (RC2) for Nim version 2.0 is ready for testing.</p>
+
+
+    </div>
+    
+  </div>
+  <div class="text-centered">
+  <a class="pure-button" href="/blog.html">All articles</a>
+  </div>
+</section>
+
+<section class="jumbotron" id="book">
+  <section class="content">
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-2-5">
+        <img height="470px" class="pure-img" src="/assets/img/nim_in_action_cover.jpg"/>
+      </div>
+      <div class="pure-u-1 pure-u-md-3-5 main-block">
+        <h1>Nim in Action</h1>
+        <h3>
+          The first Nim book, Nim in Action, is now available for purchase as
+          an eBook or printed soft cover book.
+          Learn the basics such as Nim's
+          syntax and advanced features including macros, and gain practical
+          experience with the language by being led through multiple
+          application development examples.
+        </h3>
+        <ul>
+          <li>Teaches the basics including the syntax of Nim.</li>
+          <li>Explains how to use the Nimble package manager.</li>
+          <li>
+            Includes step-by-step instructions and explanations of
+            how to develop various applications, including a chat program,
+            a Twitter clone and more.
+          </li>
+        </ul>
+      </div>
+      <div class="pure-u-1 center">
+        <a class="pure-button pure-button-primary" href="https://book.picheta.me/">Learn more</a>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section class="content center-banner">
+  <h1 class="section-heading">
+    <img height="100px" src="/assets/img/piggy.svg"/>
+    Support Nim
+  </h1>
+  <div class="pure-g center">
+    <div class="pure-u-1-2">
+      <h2>Join the 100+ companies and individuals that support Nim</h2>
+      <h3>
+        The Nim project is developed globally by a group of
+        volunteers. We welcome recurring donations, which enable us to spend more
+        time working on Nim.
+      </h3>
+    </div>
+    <div class="pure-u-1 center">
+      <a class="pure-button pure-button-primary" href="/donate.html">Donate</a>
+    </div>
+  </div>
+</section>
+
+<section class="jumbotron" id="community">
+  <section class="content">
+    <h1>Community</h1>
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-1-4">
+        <h2>Real-time chat</h2>
+        <p><a href="irc://irc.libera.chat/nim"><i class="fc fa-irc">#</i>Libera.chat#nim</a></p>
+        <p><a href="https://discord.gg/nim"><svg width="33" height="33" viewBox="0 0 91 33" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60.1045 13.8978C55.5792 11.8214 50.7265 10.2916 45.6527 9.41542C45.5603 9.39851 45.468 9.44077 45.4204 9.52529C44.7963 10.6353 44.105 12.0834 43.6209 13.2216C38.1637 12.4046 32.7345 12.4046 27.3892 13.2216C26.905 12.0581 26.1886 10.6353 25.5617 9.52529C25.5141 9.44359 25.4218 9.40133 25.3294 9.41542C20.2584 10.2888 15.4057 11.8186 10.8776 13.8978C10.8384 13.9147 10.8048 13.9429 10.7825 13.9795C1.57795 27.7309 -0.943561 41.1443 0.293408 54.3914C0.299005 54.4562 0.335386 54.5182 0.385761 54.5576C6.45866 59.0174 12.3413 61.7249 18.1147 63.5195C18.2071 63.5477 18.305 63.5139 18.3638 63.4378C19.7295 61.5728 20.9469 59.6063 21.9907 57.5383C22.0523 57.4172 21.9935 57.2735 21.8676 57.2256C19.9366 56.4931 18.0979 55.6 16.3292 54.5858C16.1893 54.5041 16.1781 54.304 16.3068 54.2082C16.679 53.9293 17.0513 53.6391 17.4067 53.3461C17.471 53.2926 17.5606 53.2813 17.6362 53.3151C29.2558 58.6202 41.8354 58.6202 53.3179 53.3151C53.3935 53.2785 53.4831 53.2898 53.5502 53.3433C53.9057 53.6363 54.2779 53.9293 54.6529 54.2082C54.7816 54.304 54.7732 54.5041 54.6333 54.5858C52.8646 55.6197 51.0259 56.4931 49.0921 57.2228C48.9662 57.2707 48.9102 57.4172 48.9718 57.5383C50.038 59.6034 51.2554 61.5699 52.5959 63.435C52.6519 63.5139 52.7526 63.5477 52.845 63.5195C58.6464 61.7249 64.529 59.0174 70.6019 54.5576C70.6551 54.5182 70.6887 54.459 70.6943 54.3942C72.1747 39.0791 68.2147 25.7757 60.1968 13.9823C60.1772 13.9429 60.1437 13.9147 60.1045 13.8978ZM23.7259 46.3253C20.2276 46.3253 17.3451 43.1136 17.3451 39.1693C17.3451 35.225 20.1717 32.0133 23.7259 32.0133C27.308 32.0133 30.1626 35.2532 30.1066 39.1693C30.1066 43.1136 27.28 46.3253 23.7259 46.3253ZM47.3178 46.3253C43.8196 46.3253 40.9371 43.1136 40.9371 39.1693C40.9371 35.225 43.7636 32.0133 47.3178 32.0133C50.9 32.0133 53.7545 35.2532 53.6986 39.1693C53.6986 43.1136 50.9 46.3253 47.3178 46.3253Z" fill="#FFDC47"></path></svg>Discord/Nim</a></p>
+        <p><a href="https://gitter.im/nim-lang/Nim"><i class="fab fa-gitter"></i>Gitter/Nim</a></p>
+        <p><a href="https://matrix.to/#/#nim:envs.net"><i class="fab i">m</i>#nim:envs.net</a></p>
+        <p><a href="https://irclogs.nim-lang.org"><i class="fc fa-irc">#</i>IRC Logs</a></p>
+        <p><a href="https://t.me/nim_lang"><i class="fab fa-telegram"></i>Telegram/nim_lang</a></p>
+      </div>
+
+      <div class="pure-u-1 pure-u-md-1-4">
+        <h2>Forum</h2>
+        <p><a href="https://forum.nim-lang.org">
+          <i class="fa fa-comments" aria-hidden="true"></i>forum.nim-lang.org</a></p>
+        <p><a href="https://reddit.com/r/nim">
+          <i class="fab fa-reddit" aria-hidden="true"></i>r/nim</a></p>
+        <p><a href="https://stackoverflow.com/questions/tagged/nim-lang">
+          <i class="fab fa-stack-overflow" aria-hidden="true"></i>StackOverflow</a></p>
+      </div>
+
+      <div class="pure-u-1 pure-u-md-1-4">
+        <h2>Bug reports</h2>
+        <p><a href="https://github.com/nim-lang/Nim/issues">
+          <i class="fab fa-github" aria-hidden="true"></i>nim-lang/Nim</a></p>
+      </div>
+
+      <div class="pure-u-1 pure-u-md-1-4">
+        <h2>Twitter</h2>
+        <p><a href="https://twitter.com/nim_lang">
+          <i class="fab fa-twitter" aria-hidden="true"></i>@nim_lang
+        </a></p>
+      </div>
+
+      <div class="pure-u-1 center">
+        <p><a class="pure-button" href="/community.html">Join the community</a></p>
+      </div>
+    </div>
+
+  </section>
+</section>
+
+<section class="content center-banner">
+  <h1 class="section-heading">
+    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+    Looking for the GitHub repository?
+  </h1>
+  <div class="pure-g center">
+    <div class="pure-u-1-2">
+      <h3>
+        The Nim compiler and tools are all written in Nim and licensed under the
+        MIT license, with most development taking place on GitHub.
+        Be sure to watch the repository to get updates on Nim's
+        development, or star it to give us some brownie points.
+      </h3>
+    </div>
+    <div class="pure-u-1 center">
+      <a class="pure-button" href="https://github.com/nim-lang/Nim">Source code</a>
+    </div>
+  </div>
+</section>
+
+    </div>
+    <footer>
+  <section class="content">
+    <div class="pure-g">
+      <div class="copyright pure-u-2-3">
+        <p>
+          Unless otherwise stated, the content of this page is
+          licensed under the
+          <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>
+          license.
+          Code displayed on this website is MIT licensed.
+        </p>
+        <p>
+          This website is available on
+          <a href="https://github.com/nim-lang/website">GitHub</a>
+          and contributions are welcome.
+          Original website design by
+          <a href="https://github.com/dom96">Dominik Picheta</a> and
+          <a href="https://github.com/Calinou">Hugo Locurcio</a>.
+          Logo by <a href="https://github.com/josephwecker">Joseph Wecker</a>.
+        </p>
+      </div>
+      <div class="pure-u-1-3 right-center">
+        <a href="https://m.do.co/c/637ab907c7f4"><img src="/assets/img/do.png"/></a>
+      </div>
+    </div>
+  </section>
+
+</footer>
+<script>
+    (function(){
+      function setTracking(a) {
+        var url = a.href;
+        a.onclick = function() {
+          if (typeof(ga) !== "undefined") {
+            ga('send', 'event', 'outbound', 'click', url, {
+              'transport': 'beacon',
+              'hitCallback': function(){document.location = url;}
+            });
+          }
+        };
+      }
+
+      var a = document.getElementsByTagName("a");
+      for (var i = 0; i < a.length; ++i) {
+        if (a[i].hostname != location.hostname &&
+            a[i].getAttribute("target") !== "_blank"
+        ) {
+          setTracking(a[i])
+        }
+      }
+    })();
+</script>
+
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7c9b4a1e5b2c363e","version":"2023.4.0","r":1,"token":"8274044078fb43adb1664c1fd234c4e9","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

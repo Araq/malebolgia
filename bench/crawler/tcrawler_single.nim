@@ -11,27 +11,31 @@ import std / [isolation, httpclient, os, streams, parsexml, strutils, sets, time
 const
   StartUrl = "https://nim-lang.org"
 
+proc cut(s: string): string =
+  let p = find(s, '#')
+  if p >= 0:
+    result = s.substr(0, p-1)
+  else:
+    result = s
+
 proc combine(url, base: string): string =
   if url.endsWith(".tar.xz") or url.endsWith(".zip") or url.endsWith(".7z"):
     result = ""
   elif url.startsWith(base):
-    result = url
+    result = url.cut
   elif url.startsWith("/"):
-    result = base & url
+    result = (base & url).cut
   elif not url.startsWith("http"):
-    result = base & "/" & url
+    result = (base & "/" & url).cut
   else:
     result = ""
 
 var
   seen: HashSet[string]
-  L: TicketLock
 
 proc containsOrIncl(s: string): bool =
   {.gcsafe.}:
-    acquire L
     result = containsOrIncl(seen, s)
-    release L
 
 proc download(url: string) {.gcsafe.}
 
@@ -80,22 +84,22 @@ proc extractLinks(html: string) {.gcsafe.} =
         x.next()
       else: x.next() # skip other events
 
-  echo($links & " link(s) found!")
+  #echo($links & " link(s) found!")
   x.close()
 
 
+proc mangle(url: string): string =
+  url.multiReplace({"/": "_", ".html": "", ".": "", ":": ""}) & ".html"
+
 proc download(url: string) =
-  echo "downloading ", url
-  var client = newHttpClient()
-  var content = ""
+  let filename = "bench/data/" & url.mangle
   try:
-    content = client.getContent(url)
-  except HttpRequestError:
+    let content = readFile(filename)
+    if content.len > 0:
+      extractLinks(content)
+  except:
+    #echo "could not find ", filename
     discard
-  finally:
-    client.close()
-  if content.len > 0:
-    extractLinks(content)
 
 seen.incl StartUrl
 
@@ -103,8 +107,10 @@ import std / times
 
 let t0 = getTime()
 
-download(StartUrl)
+for i in 0..<4000:
+  download(StartUrl)
 echo "took ", getTime() - t0
+echo "seen links ", seen.len
 
-# took 1 minute, 19 seconds, 717 milliseconds, 426 microseconds, and 300 nanoseconds
-
+# took 868 milliseconds and 828 microseconds
+# seen links 46

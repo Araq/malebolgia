@@ -112,8 +112,8 @@ let t0 = getTime()
 
 init(Weave)
 for i in 0..<4000:
-  spawn download(StartUrl)
-  syncRoot(Weave)
+  syncScope:
+    spawn download(StartUrl)
 exit(Weave)
 echo "took ", getTime() - t0
 echo "seen links ", seen.len

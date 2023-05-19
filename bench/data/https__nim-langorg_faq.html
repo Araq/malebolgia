@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta name="charset" content="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/assets/img/logo_bw.png" />
+
+  
+  <title>FAQ - Nim Programming Language</title>
+  
+  <link rel="stylesheet" href="/assets/css/pure.min.css">
+  <link rel="stylesheet" href="/assets/css/pure-grids-responsive.min.css">
+  <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  
+  <link rel="stylesheet" href="/assets/css/highlight/github.css">
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Titillium+Web" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?t=1680767740708142505">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48159761-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script defer data-domain="nim-lang.org" src="https://plausible.io/js/plausible.js"></script>
+
+  <meta name="twitter:title" content="FAQ">
+
+  
+  <meta name="twitter:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta property="og:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  
+
+  <meta name="twitter:site" content="@nim_lang">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://nim-lang.org/assets/img/twitter_banner.png">
+
+  <meta property="og:title" content="FAQ" />
+  <meta property="og:site_name" content="Nim Programming Language" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://nim-lang.org/assets/img/twitter_banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1000" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:image:alt" content="Nim Programming Language" />
+</head>
+
+  <body class="site">
+    <header>
+  <nav class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+    <div class="nav-content">
+      <a href="/" class="pure-menu-heading pure-menu-link site-logo-container">
+        <img class="site-logo" src="/assets/img/logo.svg" height="28" alt="Nim">
+      </a>
+      <ul class="pure-menu-list">
+        
+        <li class="pure-menu-item">
+          <a href="/blog.html"
+             class="pure-menu-link ">
+            Blog
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/features.html"
+             class="pure-menu-link ">
+            Features
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/install.html"
+             class="pure-menu-link ">
+            Download
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/documentation.html"
+             class="pure-menu-link ">
+            Documentation
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="https://forum.nim-lang.org"
+             class="pure-menu-link ">
+            Forum
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/donate.html"
+             class="pure-menu-link ">
+            Donate
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/nim-lang/Nim">Source</a>
+        </li>
+      </ul>
+    </div>
+    <div class="menu-fade"></div>
+  </nav>
+</header>
+
+    <div class="site-content faq slim content">
+      <h1 class="text-centered page-title main-heading">Frequently Asked Questions</h1>
+
+<h1 id="general-questions">General questions</h1>
+
+<h2 id="why-yet-another-programming-language">Why yet another programming language?</h2>
+
+<p>Nim is one of the very few <em>programmable</em> statically typed languages, and
+combines the speed and memory efficiency of C, an expressive syntax,
+memory safety and multiple target languages.</p>
+
+<h2 id="how-stable-is-nim">How stable is Nim?</h2>
+
+<p>The compiler and stdlib are actively under development and have a suite of test
+cases to ensure ongoing stability. Regular releases are posted every three to
+six months that can be used as a base for projects requiring a stable foundation.
+Breaking changes are rare but are <a href="https://nim-lang.org/blog/2018/03/01/version-0180-released.html">documented</a>
+in detail and can typically be managed with minimal effort. The compiler also
+highlights deprecated features to provide sufficient notice and transition time
+through changes.</p>
+
+<h2 id="how-about-security-and-memory-safety">How about security and memory safety?</h2>
+
+<p>Nim provides memory safety by not performing pointer arithmetic, with
+optional <a href="https://nim-lang.org/docs/manual.html#pragmas-compilation-option-pragmas">checks</a>, traced and untraced references and optional non-nullable types.
+It supports Valgrind through the koch tool, and taint analysis.</p>
+
+<h2 id="how-is-nim-licensed">How is Nim licensed?</h2>
+
+<p>The Nim compiler and the library are MIT licensed.
+This means that you can use any license for your own programs developed with
+Nim.</p>
+
+<h2 id="what-about-jvmclr-backends">What about JVM/CLR backends?</h2>
+
+<p>JVM/CLR support is not in the nearest plans. However, since these VMs support FFI to C
+it should be possible to create native Nim bridges, that transparently generate all the
+glue code thanks to powerful metaprogramming capabilities of Nim.</p>
+
+<h2 id="what-about-editor-support">What about editor support?</h2>
+
+<ul>
+  <li>Visual Studio Code:
+    <ul>
+      <li>Extension written in Nim <a href="https://marketplace.visualstudio.com/items?itemName=nimsaem.nimvscode">https://marketplace.visualstudio.com/items?itemName=nimsaem.nimvscode</a></li>
+      <li>Original Extension written in TypeScript <a href="https://marketplace.visualstudio.com/items?itemName=kosz78.nim">https://marketplace.visualstudio.com/items?itemName=kosz78.nim</a></li>
+    </ul>
+  </li>
+  <li>VSCodium/OpenVSX: <a href="https://open-vsx.org/extension/nimsaem/nimvscode">https://open-vsx.org/extension/nimsaem/nimvscode</a></li>
+  <li>Emacs: <a href="https://github.com/nim-lang/nim-mode">https://github.com/nim-lang/nim-mode</a></li>
+  <li>Vim: <a href="https://github.com/zah/nimrod.vim">https://github.com/zah/nimrod.vim/</a></li>
+  <li>NeoVim: <a href="https://github.com/alaviss/nim.nvim">https://github.com/alaviss/nim.nvim</a></li>
+  <li>QtCreator (4.1+): Included as experimental plugin.</li>
+  <li>Scite: Included</li>
+  <li>Gedit: The <a href="https://github.com/nim-lang/Aporia/blob/master/share/gtksourceview-2.0/language-specs/nim.lang">Aporia .lang file</a>.</li>
+  <li>Geany: Included</li>
+  <li>jEdit: <a href="https://github.com/exhu/nimrod-misc/tree/master/jedit">https://github.com/exhu/nimrod-misc/tree/master/jedit</a></li>
+  <li>TextMate: <a href="https://github.com/textmate/nim.tmbundle">https://github.com/textmate/nim.tmbundle</a></li>
+  <li>Sublime Text: <a href="https://github.com/Varriount/NimLime">https://github.com/Varriount/NimLime</a></li>
+  <li>LiClipse: <a href="http://www.liclipse.com/">http://www.liclipse.com/</a> (Eclipse based plugin)</li>
+  <li>Howl: Included</li>
+  <li>Notepad++: <a href="https://github.com/jangko/nppnim/releases">https://github.com/jangko/nppnim/releases</a></li>
+  <li>Micro: Included</li>
+  <li>Atom: <a href="https://atom.io/packages/nim">https://atom.io/packages/nim</a></li>
+  <li>JetBrains IDEs: <a href="https://plugins.jetbrains.com/plugin/15128-nim">https://plugins.jetbrains.com/plugin/15128-nim</a></li>
+  <li>Kakoune: Included</li>
+  <li>For editors with LSP (Language Server Protocol) support (requires a separate syntax/indenting plugin): <a href="https://github.com/PMunch/nimlsp">https://github.com/PMunch/nimlsp</a></li>
+</ul>
+
+<h2 id="what-have-been-the-major-influences-in-the-languages-design">What have been the major influences in the language’s design?</h2>
+
+<p>The language borrows heavily from (in order of impact): Modula 3, Delphi,
+Ada, C++, Python, Lisp, Oberon.</p>
+
+<h2 id="why-is-it-named-proc">Why is it named <code class="highlighter-rouge">proc</code>?</h2>
+
+<p><em>Procedure</em> used to be the common term as opposed to a <em>function</em> which is a
+mathematical entity that has no side effects. And indeed in Nim <code class="highlighter-rouge">func</code>
+is syntactic sugar for <code class="highlighter-rouge">proc {.noSideEffect.}</code>. Naming it <code class="highlighter-rouge">def</code> would not
+make sense because Nim also provides an <code class="highlighter-rouge">iterator</code> and a <code class="highlighter-rouge">method</code> keyword,
+whereas <code class="highlighter-rouge">def</code> stands for <code class="highlighter-rouge">define</code>.</p>
+
+<h1 id="compilation-faq">Compilation FAQ</h1>
+
+<h2 id="which-option-to-use-for-the-fastest-executable">Which option to use for the fastest executable?</h2>
+
+<p>For the standard configuration file, <code class="highlighter-rouge">-d:danger</code> makes the fastest binary possible
+while disabling <strong>all</strong> runtime safety checks including bound checks, overflow checks, 
+nil checks and more; for most cases <code class="highlighter-rouge">-d:release</code> should
+be enough. If supported by your compiler, you can also enable link-time optimization 
+for an even faster executable: <code class="highlighter-rouge">--passc:-flto</code> or <code class="highlighter-rouge">-d:lto</code> on Nim 1.4+</p>
+
+<h2 id="which-option-to-use-for-the-smallest-executable">Which option to use for the smallest executable?</h2>
+
+<p>For the standard configuration file, <code class="highlighter-rouge">-d:danger -d:strip --opt:size</code> does the trick.
+If supported by your compiler, you can also enable link-time optimization
+the same way as described in the previous answer.</p>
+
+<h2 id="how-do-i-use-a-different-c-compiler-than-the-default-one">How do I use a different C compiler than the default one?</h2>
+
+<p>Edit the <code class="highlighter-rouge">config/nim.cfg</code> file.
+Change the value of the <code class="highlighter-rouge">cc</code> variable to one of the following:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Abbreviation</th>
+      <th>C/C++ Compiler</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">gcc</code></td>
+      <td>GNU C compiler</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">clang</code></td>
+      <td>Clang compiler</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">vcc</code></td>
+      <td>Microsoft’s Visual C++</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">icc</code></td>
+      <td>Intel C compiler</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">llvm_gcc</code></td>
+      <td>LLVM-GCC compiler</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tcc</code></td>
+      <td>Tiny C compiler</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">bcc</code></td>
+      <td>Borland C compiler</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">envcc</code></td>
+      <td>Your environment’s default C compiler</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Other C compilers are not officially supported, but might work too.</p>
+
+<p>If your C compiler is not in the above list, try using the
+<em>environment’s default C compiler</em> (<code class="highlighter-rouge">envcc</code>). If the C compiler needs
+different command line arguments try the <code class="highlighter-rouge">--passc</code> and <code class="highlighter-rouge">--passl</code> switches.</p>
+
+    </div>
+    <footer>
+  <section class="content">
+    <div class="pure-g">
+      <div class="copyright pure-u-2-3">
+        <p>
+          Unless otherwise stated, the content of this page is
+          licensed under the
+          <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>
+          license.
+          Code displayed on this website is MIT licensed.
+        </p>
+        <p>
+          This website is available on
+          <a href="https://github.com/nim-lang/website">GitHub</a>
+          and contributions are welcome.
+          Original website design by
+          <a href="https://github.com/dom96">Dominik Picheta</a> and
+          <a href="https://github.com/Calinou">Hugo Locurcio</a>.
+          Logo by <a href="https://github.com/josephwecker">Joseph Wecker</a>.
+        </p>
+      </div>
+      <div class="pure-u-1-3 right-center">
+        <a href="https://m.do.co/c/637ab907c7f4"><img src="/assets/img/do.png"/></a>
+      </div>
+    </div>
+  </section>
+
+</footer>
+<script>
+    (function(){
+      function setTracking(a) {
+        var url = a.href;
+        a.onclick = function() {
+          if (typeof(ga) !== "undefined") {
+            ga('send', 'event', 'outbound', 'click', url, {
+              'transport': 'beacon',
+              'hitCallback': function(){document.location = url;}
+            });
+          }
+        };
+      }
+
+      var a = document.getElementsByTagName("a");
+      for (var i = 0; i < a.length; ++i) {
+        if (a[i].hostname != location.hostname &&
+            a[i].getAttribute("target") !== "_blank"
+        ) {
+          setTracking(a[i])
+        }
+      }
+    })();
+</script>
+
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7c9b4a376f5518fd","version":"2023.4.0","r":1,"token":"8274044078fb43adb1664c1fd234c4e9","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

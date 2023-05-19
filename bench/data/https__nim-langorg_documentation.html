@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta name="charset" content="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/assets/img/logo_bw.png" />
+
+  
+  <title>Documentation - Nim Programming Language</title>
+  
+  <link rel="stylesheet" href="/assets/css/pure.min.css">
+  <link rel="stylesheet" href="/assets/css/pure-grids-responsive.min.css">
+  <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  
+  <link rel="stylesheet" href="/assets/css/highlight/github.css">
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Titillium+Web" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?t=1680767740708142505">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48159761-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script defer data-domain="nim-lang.org" src="https://plausible.io/js/plausible.js"></script>
+
+  <meta name="twitter:title" content="Documentation">
+
+  
+  <meta name="twitter:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  <meta property="og:description" content="The Nim programming language is a concise, fast programming language that compiles to C, C++ and JavaScript.">
+  
+
+  <meta name="twitter:site" content="@nim_lang">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://nim-lang.org/assets/img/twitter_banner.png">
+
+  <meta property="og:title" content="Documentation" />
+  <meta property="og:site_name" content="Nim Programming Language" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://nim-lang.org/assets/img/twitter_banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1000" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:image:alt" content="Nim Programming Language" />
+</head>
+
+  <body class="site">
+    <header>
+  <nav class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+    <div class="nav-content">
+      <a href="/" class="pure-menu-heading pure-menu-link site-logo-container">
+        <img class="site-logo" src="/assets/img/logo.svg" height="28" alt="Nim">
+      </a>
+      <ul class="pure-menu-list">
+        
+        <li class="pure-menu-item">
+          <a href="/blog.html"
+             class="pure-menu-link ">
+            Blog
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/features.html"
+             class="pure-menu-link ">
+            Features
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/install.html"
+             class="pure-menu-link ">
+            Download
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/documentation.html"
+             class="pure-menu-link current">
+            Documentation
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="https://forum.nim-lang.org"
+             class="pure-menu-link ">
+            Forum
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a href="/donate.html"
+             class="pure-menu-link ">
+            Donate
+          </a>
+        </li>
+        
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://github.com/nim-lang/Nim">Source</a>
+        </li>
+      </ul>
+    </div>
+    <div class="menu-fade"></div>
+  </nav>
+</header>
+
+    <div class="site-content documentation slim content">
+      <section class="pure-g content">
+  <h1 class="pure-u-1 text-centered page-title main-heading">Documentation</h1>
+
+  <div>
+    <div class="pure-u-1">
+      <h2>Getting started with Nim</h2>
+    </div>
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://learnxinyminutes.com/docs/nim/">Learn Nim in 5 minutes</a></h3>
+      <p>A 5-minute tour through Nim.</p>
+    </div>
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://narimiran.github.io/nim-basics/">Nim basics tutorial</a></h3>
+      <p>For programming beginners. Covers all the basic topics, enough to make your first programming steps.</p>
+    </div>
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://play.nim-lang.org/">Official Nim Playground</a></h3>
+      <p>Compile and run Nim snippets in your browser.</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="pure-u-1">
+      <h2>Official tutorials</h2>
+    </div>
+
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://nim-lang.org/docs/tut1.html">Tutorial, part 1</a></h3>
+      <p>A guide about basic and advanced built-in types, statements, control flow, and procedures.</p>
+    </div>
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://nim-lang.org/docs/tut2.html">Tutorial, part 2</a></h3>
+      <p>How to use Object Oriented Programming in Nim, exceptions, generics, and templates.</p>
+    </div>
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://nim-lang.org/docs/tut3.html">Macro tutorial</a></h3>
+      <p>Learn about meta-programming and macros.</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="pure-u-1">
+      <h2>Nim for...</h2>
+    </div>
+
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://github.com/nim-lang/Nim/wiki/Nim-for-C-programmers">... C programmers</a></h3>
+      <p>This is a guide for people with experience in C or a similar language.
+      The guide assumes some intermediate knowledge, for instance of how stacks and heaps works.</p>
+    </div>
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://github.com/nim-lang/Nim/wiki/Nim-for-Python-Programmers">... Python programmers</a></h3>
+      <p>Nim is much more than "compiled Python", and this tutorial will give you an overview
+      of similarities and differences between the two languages.</p>
+    </div>
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://github.com/nim-lang/Nim/wiki/Nim-for-TypeScript-Programmers">... TypeScript/JavaScript programmers</a></h3>
+      <p>Want to use Nim for your frontend needs? Start here.</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="pure-u-1">
+      <h2>Documentation</h2>
+    </div>
+
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://nim-lang.org/docs/lib.html">Standard Library</a></h3>
+      <p>Provides a listing and description of all the modules in the standard library.</p>
+    </div>
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://nim-lang.org/docs/manual.html">Language Manual</a></h3>
+      <p>The Nim programming language specification.</p>
+    </div>
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://nim-lang.org/docs/tools.html">Tools Documentation</a></h3>
+      <p>Description of some tools that come with the standard distribution.</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="pure-u-1">
+      <h2>Search</h2>
+    </div>
+
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://nim-lang.org/docs/theindex.html">Searchable index</a></h3>
+      <p>All Nim documents and modules in one place. Use Ctrl/Cmd+F.</p>
+    </div>
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://nimble.directory/">Nimble Package Directory</a></h3>
+      <p>Search for available Nimble packages.</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="pure-u-1">
+      <h2>Tutorials</h2>
+    </div>
+
+    <div class="row">
+      <div class="pure-u pure-u-md-1-3">
+        <h3><a href="http://howistart.org/posts/nim/1/index.html">How I Start: Nim</a></h3>
+        <p>Write an interpreter for the BrainF#@% programming language in Nim.</p>
+      </div>
+
+      <div class="pure-u pure-u-md-1-3">
+        <h3><a href="https://nim-by-example.github.io/getting_started/">Nim by Example</a></h3>
+        <p>A series of short examples covering the most common topics.</p>
+      </div>
+
+      <div class="pure-u pure-u-md-1-3">
+        <h3><a href="https://xmonader.github.io/nimdays/">Nim Days</a></h3>
+        <p>Building mini applications with Nim.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="pure-u pure-u-md-1-3">
+        <h3>
+          <a href="https://scripter.co/notes/nim">Nim Notes</a>
+        </h3>
+        <p>
+        A collection of Nim snippets with brief notes.
+        </p>
+      </div>
+
+      <div class="pure-u pure-u-md-1-3">
+        <h3>
+          <a href="http://zevv.nl/nim-memory/">Nim memory model</a>
+        </h3>
+        <p>
+        Tutorial explaining essentials of how Nim stores data in memory.
+        </p>
+      </div>
+
+      <div class="pure-u pure-u-md-1-3">
+        <h3>
+          <a href="https://www.youtube.com/playlist?list=PLvwc2YT9MFOlPPexrsY-t7BNTdg2Vsx06">Nim for Beginners</a>
+        </h3>
+        <p>
+        A video series meant to teach Nim programming to people
+        who have never programmed before, or are new to the language.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="pure-u-1">
+      <h2>Blogs</h2>
+    </div>
+
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="http://goran.krampe.se/category/nim/">Goran Krampe</a></h3>
+      <p>OOP in Nim, Arduino and Nim, and more.</p>
+    </div>
+
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://hookrace.net/blog/nim/">HookRace</a></h3>
+      <p>NES emulator in Nim, SDL2 platformer, writing small binaries, etc.</p>
+    </div>
+
+    <div class="pure-u pure-u-md-1-3">
+      <h3><a href="https://peterme.net/">Peter's DevLog</a></h3>
+      <p>Options, File handling, stack vs heap (ref) objects, etc.</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="pure-u-1">
+      <h2>Other</h2>
+    </div>
+
+    <div class="row">
+      <div class="pure-u pure-u-md-1-3">
+        <h3><a href="https://nim-lang.org/docs/nimc.html">Compiler User Guide</a></h3>
+        <p>Outlines the commands and command line flags the Nim compiler supports.
+        Explains how the Nim compiler can be configured and describes how to cross-compile,
+        generate DLLs, and more.</p>
+      </div>
+
+      <div class="pure-u pure-u-md-1-3">
+        <h3><a href="https://nim-lang.org/docs/nep1.html">Nim Style Guide</a></h3>
+        <p>The stylistic conventions that Nim's official projects adhere to.</p>
+      </div>
+
+      <div class="pure-u pure-u-md-1-3">
+        <h3><a href="https://github.com/nim-lang/nimble#readme">Nimble Package Manager</a></h3>
+        <p>Explains configuration and usage of Nimble package manager,
+        including creating and publishing your own packages.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="pure-u pure-u-md-1-3">
+        <h3><a href="https://nim-lang.org/docs/nims.html">NimScript</a></h3>
+        <p>Describes the subset of Nim used for configuring Nim and specifying Nimble packages.</p>
+      </div>
+
+      <div class="pure-u pure-u-md-1-3">
+        <h3><a href="https://nim-lang.org/docs/intern.html">Internal Documentation</a></h3>
+        <p>The internal documentation describes how the compiler is implemented.
+        Read this if you want to hack the compiler.</p>
+      </div>
+
+      <div class="pure-u pure-u-md-1-3">
+        <h3><a href="https://nim-lang.org/docs/backends.html">Nim Backend Integration</a></h3>
+        <p>Describes the various backends supported by Nim, including C, C++, Obj C, and JS.
+        It also explains how to interface with libraries written in those languages.</p>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</section>
+
+    </div>
+    <footer>
+  <section class="content">
+    <div class="pure-g">
+      <div class="copyright pure-u-2-3">
+        <p>
+          Unless otherwise stated, the content of this page is
+          licensed under the
+          <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>
+          license.
+          Code displayed on this website is MIT licensed.
+        </p>
+        <p>
+          This website is available on
+          <a href="https://github.com/nim-lang/website">GitHub</a>
+          and contributions are welcome.
+          Original website design by
+          <a href="https://github.com/dom96">Dominik Picheta</a> and
+          <a href="https://github.com/Calinou">Hugo Locurcio</a>.
+          Logo by <a href="https://github.com/josephwecker">Joseph Wecker</a>.
+        </p>
+      </div>
+      <div class="pure-u-1-3 right-center">
+        <a href="https://m.do.co/c/637ab907c7f4"><img src="/assets/img/do.png"/></a>
+      </div>
+    </div>
+  </section>
+
+</footer>
+<script>
+    (function(){
+      function setTracking(a) {
+        var url = a.href;
+        a.onclick = function() {
+          if (typeof(ga) !== "undefined") {
+            ga('send', 'event', 'outbound', 'click', url, {
+              'transport': 'beacon',
+              'hitCallback': function(){document.location = url;}
+            });
+          }
+        };
+      }
+
+      var a = document.getElementsByTagName("a");
+      for (var i = 0; i < a.length; ++i) {
+        if (a[i].hostname != location.hostname &&
+            a[i].getAttribute("target") !== "_blank"
+        ) {
+          setTracking(a[i])
+        }
+      }
+    })();
+</script>
+
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7c9b4a1fcc6f1cad","version":"2023.4.0","r":1,"token":"8274044078fb43adb1664c1fd234c4e9","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>
