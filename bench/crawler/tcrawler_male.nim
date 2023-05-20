@@ -8,7 +8,7 @@ import malebolgia
 #import experiment / malebolgia_push
 import malebolgia / ticketlocks
 
-import std / [isolation, httpclient, os, streams, parsexml, strutils, sets, times]
+import std / [isolation, os, streams, parsexml, strutils, sets, times]
 
 const
   StartUrl = "https://nim-lang.org"
@@ -42,12 +42,12 @@ proc containsOrIncl(s: string): bool =
     result = containsOrIncl(seen, s)
     release L
 
-proc download(url: string; master: ptr Master) {.gcsafe.}
+proc download(url: string; master: MasterHandle) {.gcsafe.}
 
 proc `=?=` (a, b: string): bool =
   return cmpIgnoreCase(a, b) == 0
 
-proc extractLinks(html: string; master: ptr Master) {.gcsafe.} =
+proc extractLinks(html: string; master: MasterHandle) {.gcsafe.} =
   var links = 0 # count the number of links
   var s = newStringStream(html)
   var x: XmlParser
@@ -80,7 +80,7 @@ proc extractLinks(html: string; master: ptr Master) {.gcsafe.} =
                 x.next()
               link = combine(link, StartUrl)
               if link.len > 0 and not containsOrIncl(link):
-                master[].spawn download(link, master)
+                master.spawn download(link, master)
         else:
           x.next()
       of xmlEof: break # end of file reached
@@ -95,12 +95,12 @@ proc extractLinks(html: string; master: ptr Master) {.gcsafe.} =
 proc mangle(url: string): string =
   url.multiReplace({"/": "_", ".html": "", ".": "", ":": ""}) & ".html"
 
-proc download(url: string; master: ptr Master) =
+proc download(url: string; master: MasterHandle) =
   let filename = "bench/data/" & url.mangle
   try:
     let content = readFile(filename)
     if content.len > 0:
-      master[].spawn extractLinks(content, master)
+      master.spawn extractLinks(content, master)
   except:
     #echo "could not find ", filename
     discard
@@ -114,7 +114,7 @@ let t0 = getMonoTime()
 for i in 0..<4000:
   var master = createMaster() #timeout=initDuration(seconds=10))
   master.awaitAll:
-    master.spawn download(StartUrl, addr master)
+    master.spawn download(StartUrl, getHandle master)
 
 echo "took ", getMonoTime() - t0
 echo "seen links ", seen.len

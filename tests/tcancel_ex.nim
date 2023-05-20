@@ -3,9 +3,9 @@ discard """
 """
 
 import std/os
-import experiment / malebolgia_push
+import malebolgia
 
-proc worker(w: ptr Master)=
+proc worker(w: MasterHandle)=
   while not cancelled(w):
     echo "Triggered"
     os.sleep(3000)
@@ -22,7 +22,7 @@ m.awaitAll:
       if alreadyStarted:
         echo "already started"
       else:
-        m.spawn worker(addr m)
+        m.spawn worker(m.getHandle)
         alreadyStarted = true
     of "stop":
       echo "Trying to stop"

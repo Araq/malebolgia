@@ -1,7 +1,6 @@
 ## (c) 2023 Andreas Rumpf
 
 import std / [atomics, locks, tasks, times]
-from std / os import sleep
 
 import std / isolation
 export isolation
@@ -32,9 +31,6 @@ proc cancel*(m: var Master) =
   ## Try to stop all running tasks immediately.
   ## This cannot fail but it might take longer than desired.
   store(m.stopToken, true, moRelaxed)
-
-proc cancelled*(m: ptr Master): bool {.inline.} =
-  m.stopToken.load(moRelaxed)
 
 proc cancelled*(m: var Master): bool {.inline.} =
   m.stopToken.load(moRelaxed)
@@ -283,3 +279,5 @@ template awaitAll*(master: var Master; body: untyped) =
 
 when not defined(maleSkipSetup):
   setup()
+
+include ".." / malebolgia / masterhandles
