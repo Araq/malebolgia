@@ -122,6 +122,7 @@ jobs:
 
       - name: Run tests
         run: |
+          cd malebolgia
           nim c -r tests/dfs.nim
 
       # - name: Build docs
