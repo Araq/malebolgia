@@ -87,7 +87,7 @@ const
   FixedChanSize {.intdefine.} = 16 ## must be a power of two!
   FixedChanMask = FixedChanSize - 1
 
-  ThreadPoolSize {.intdefine.} = 7 # 256
+  ThreadPoolSize {.intdefine.} = 8 # 24
 
 type
   PoolTask = object ## a task for the thread pool
@@ -102,7 +102,7 @@ type
     data: array[FixedChanSize, PoolTask]
 
 var
-  thr: array[ThreadPoolSize, Thread[void]]
+  thr: array[ThreadPoolSize-1, Thread[void]] # -1 because the main thread counts too
   chan: FixedChan
   globalStopToken: Atomic[bool]
   busyThreads: Atomic[int]
@@ -166,7 +166,7 @@ proc panicStop*() =
 
 template spawnImplRes[T](master: var Master; fn: typed; res: T) =
   if stillHaveTime(master):
-    if busyThreads.load(moRelaxed) < ThreadPoolSize:
+    if busyThreads.load(moRelaxed) < ThreadPoolSize-1:
       taskCreated master
       send PoolTask(m: addr(master), t: toTask(fn), result: addr res)
     else:
@@ -174,7 +174,7 @@ template spawnImplRes[T](master: var Master; fn: typed; res: T) =
 
 template spawnImplNoRes(master: var Master; fn: typed) =
   if stillHaveTime(master):
-    if busyThreads.load(moRelaxed) < ThreadPoolSize:
+    if busyThreads.load(moRelaxed) < ThreadPoolSize-1:
       taskCreated master
       send PoolTask(m: addr(master), t: toTask(fn), result: nil)
     else:
