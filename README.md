@@ -26,7 +26,7 @@ using barriers.
 ## Example
 
 This program demonstrates the parallel execution of the depth-first search algorithm
-using Malebogia. By utilizing the `spawn` and `awaitAll` features, the program can
+using Malebolgia. By utilizing the `spawn` and `awaitAll` features, the program can
 efficiently distribute the workload across multiple threads, enabling faster computation:
 
 
@@ -70,7 +70,7 @@ Compile this with `nim c -d:ThreadPoolSize=8 -d:FixedChanSize=16 dfs.nim`.
 
 ## Tuning
 
-There are two parameters that influence the efficiency of Malebogia:
+There are two parameters that influence the efficiency of Malebolgia:
 
 1. `ThreadPoolSize`: Usually this should be the number of CPU cores, but for IO bound programs it can be much higher.
 2. `FixedChanSize`: The fixed size of the communication channel(s). The default value is usually good enough.
