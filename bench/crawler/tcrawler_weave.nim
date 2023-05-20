@@ -112,6 +112,8 @@ init(Weave)
 let t0 = getMonoTime()
 
 for i in 0..<4000:
+  seen = initHashSet[string]()
+  seen.incl StartUrl
   syncScope:
     spawn download(StartUrl)
 echo "took ", getMonoTime() - t0

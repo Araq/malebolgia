@@ -112,6 +112,8 @@ import std / monotimes
 let t0 = getMonoTime()
 
 for i in 0..<4000:
+  seen = initHashSet[string]()
+  seen.incl StartUrl
   var master = createMaster() #timeout=initDuration(seconds=10))
   master.awaitAll:
     master.spawn download(StartUrl, getHandle master)

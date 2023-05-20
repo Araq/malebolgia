@@ -108,6 +108,8 @@ import std / monotimes
 let t0 = getMonoTime()
 
 for i in 0..<4000:
+  seen = initHashSet[string]()
+  seen.incl StartUrl
   download(StartUrl)
 echo "took ", getMonoTime() - t0
 echo "seen links ", seen.len
