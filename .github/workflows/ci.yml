@@ -15,9 +15,6 @@ jobs:
           # - os: linux
           #   cpu: i386
           #   nim_branch: devel
-          # - os: linux
-          #   cpu: i386
-          #   nim_branch: version-1-4
           - os: macos
             cpu: amd64
             nim_branch: devel
@@ -103,15 +100,15 @@ jobs:
           echo '${{ github.workspace }}'"/external/mingw-${{ matrix.target.cpu }}/bin" >> $GITHUB_PATH
           echo '${{ github.workspace }}'"/external/dlls-${{ matrix.target.cpu }}" >> $GITHUB_PATH
 
-      - name: Restore Nim from cache
-        if: >
-          steps.nim-compiler-cache.outputs.cache-hit != 'true' &&
-          matrix.target.nim_branch != 'devel'
-        id: nim-compiler-cache
-        uses: actions/cache@v2
-        with:
-          path: '${{ github.workspace }}/nim-${{ matrix.target.nim_branch }}-${{ matrix.target.cpu }}'
-          key: 'nim-${{ matrix.target.cpu }}-${{ matrix.target.nim_branch }}'
+      # - name: Restore Nim from cache
+      #   if: >
+      #     steps.nim-compiler-cache.outputs.cache-hit != 'true' &&
+      #     matrix.target.nim_branch != 'devel'
+      #   id: nim-compiler-cache
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: '${{ github.workspace }}/nim-${{ matrix.target.nim_branch }}-${{ matrix.target.cpu }}'
+      #     key: 'nim-${{ matrix.target.cpu }}-${{ matrix.target.nim_branch }}'
 
       - name: Setup Nim
         uses: alaviss/setup-nim@0.1.1
