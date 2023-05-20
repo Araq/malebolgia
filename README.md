@@ -61,7 +61,7 @@ echo answer
 
 ```
 
-Notice the absense of a `FlowVar[T]` concept. Malebogia does not offer
+Notice the absense of a `FlowVar[T]` concept. Malebolgia does not offer
 FlowVars because they are not required. Instead the barrier within `awaitAll`
 synchronizes.
 
