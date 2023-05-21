@@ -1,7 +1,6 @@
 
 #import experiment / malebolgia_push
 import malebolgia
-import std / isolation
 
 proc fib(n: int): int {.gcsafe.} =
   if n < 2:
@@ -23,3 +22,9 @@ import std / monotimes
 let t0 = getMonoTime()
 main()
 echo "took ", getMonoTime() - t0
+
+# 102334155
+# PUSH: took (seconds: 23, nanosecond: 826683250)
+
+# 102334155
+# NORM: took (seconds: 8, nanosecond: 883639875)

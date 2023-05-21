@@ -1,4 +1,4 @@
-## (c) 2023 Andreas Rumpf
+# (c) 2023 Andreas Rumpf
 
 import std / [atomics, locks, tasks, times]
 from std / os import sleep
