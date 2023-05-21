@@ -22,6 +22,10 @@ using barriers.
 - Detach the notion of "wait for all tasks" from the notion of a "thread pool".
 - Detects simple "read/write" and "write/write" conflicts.
 - Builtin support for cancelation and timeouts.
+- **Small**: Less than 200 lines of Nim code, no dependencies.
+- Low energy consumption.
+- **Fast**: Wins some benchmarks (crawler; DFS), shows acceptable performance for others (fib).
+
 
 ## Example
 
