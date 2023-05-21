@@ -1,4 +1,4 @@
-## (c) 2023 Andreas Rumpf
+# (c) 2023 Andreas Rumpf
 
 import std / [atomics, locks, tasks, times]
 
@@ -145,22 +145,40 @@ proc drain(chan: var FixedChan) =
   for i in 0..<itemsLen:
     runSingleItem(items[i])
 
+import std / random
+
+var stolen*, unsuccessful*: int
+
 proc worker(self: int) {.thread.} =
   myself = self
+  var rng = initRand(self)
+
   while not globalStopToken.load(moRelaxed):
     acquire(chans[self].L)
-    while chans[self].count == 0:
-      chans[self].ready.store(true, moRelaxed)
-      wait(chans[self].dataAvailable, chans[self].L)
-    chans[self].ready.store(false, moRelaxed)
+    #while chans[self].count == 0:
+    #  chans[self].ready.store(true, moRelaxed)
+    #  wait(chans[self].dataAvailable, chans[self].L)
+    #chans[self].ready.store(false, moRelaxed)
     drain chans[self]
 
+    var victim = (self + 1) and ThreadPoolMask
+    if ThreadPoolSize > 2:
+      while true:
+        let r = rng.rand(0..ThreadPoolMask)
+        if r != self:
+          victim = r
+          break
+    if chans[victim].count > 0:
+      acquire chans[victim].L
+      if chans[victim].count > 0: atomicInc stolen
+      else: atomicInc unsuccessful
+      drain chans[victim]
 
 proc setup() =
   for i in 0..high(thr):
     createThread(thr[i], worker, i+1)
   for i in 0..high(chans):
-    initCond(chans[i].dataAvailable)
+    #initCond(chans[i].dataAvailable)
     initLock(chans[i].L)
 
 
@@ -169,12 +187,12 @@ proc panicStop*() =
   globalStopToken.store(true, moRelaxed)
   joinThreads(thr)
   for i in 0..high(chans):
-    deinitCond(chans[i].dataAvailable)
+    #deinitCond(chans[i].dataAvailable)
     deinitLock(chans[i].L)
 
 template spawnImplRes[T](master: var Master; fn: typed; res: T) =
   if stillHaveTime(master):
-    let w = probeWorkers()
+    let w = myself # probeWorkers()
     if w >= 0 and trySend(chans[w], master, PoolTask(m: addr(master), t: toTask(fn), result: addr res)):
       discard
     else:
@@ -182,7 +200,7 @@ template spawnImplRes[T](master: var Master; fn: typed; res: T) =
 
 template spawnImplNoRes(master: var Master; fn: typed) =
   if stillHaveTime(master):
-    let w = probeWorkers()
+    let w = myself # probeWorkers()
     if w >= 0 and trySend(chans[w], master, PoolTask(m: addr(master), t: toTask(fn), result: nil)):
       discard
     else:
