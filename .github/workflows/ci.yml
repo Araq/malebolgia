@@ -43,7 +43,7 @@ jobs:
       NIM_ARCH: ${{ matrix.target.cpu }}
     steps:
       - name: Checkout malebolgia
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: malebolgia
           submodules: false
@@ -51,7 +51,7 @@ jobs:
       - name: Restore MinGW-W64 (Windows) from cache
         if: runner.os == 'Windows'
         id: windows-mingw-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: external/mingw-${{ matrix.target.cpu }}
           key: 'mingw-${{ matrix.target.cpu }}'
@@ -59,7 +59,7 @@ jobs:
       - name: Restore Nim DLLs dependencies (Windows) from cache
         if: runner.os == 'Windows'
         id: windows-dlls-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: external/dlls-${{ matrix.target.cpu }}
           key: 'dlls-${{ matrix.target.cpu }}'
