@@ -129,3 +129,31 @@ m.awaitAll:
       m.spawn bar($i)
 
 ```
+
+## MasterHandle
+
+A `Master` object cannot be passed to subroutines, but
+a `MasterHandle` can be passed to subroutines. In order to create a `MasterHandle` 
+use the `getHandle` proc:
+
+```nim
+import malebolgia
+
+proc g(m: MasterHandle; i: int) {.gcsafe.} =
+  if i < 800:
+    echo "BEGIN G"
+    m.spawn g(m, i+1)
+    echo "END G"
+
+proc main =
+  var m = createMaster()
+  m.awaitAll:
+    m.spawn g(getHandle(m), 0)
+
+main()
+
+```
+
+A `MasterHandle` does not support the `awaitAll` operation but it can `spawn`
+new tasks and supports cancelation. Thus a `MasterHandle` object cannot be used
+to break the structured concurrency abstraction.
