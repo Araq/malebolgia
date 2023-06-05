@@ -3,7 +3,7 @@
    "The master told me what I had to do. He speaks to me and I know his name.
    He calls himself Malebolgia."
 
-![](assets/malebolgia.png)
+<img src="assets/malebolgia.png" style="width: 15%" />
 
 Malebolgia creates new spawns.
 
