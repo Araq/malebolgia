@@ -3,6 +3,8 @@
    "The master told me what I had to do. He speaks to me and I know his name.
    He calls himself Malebolgia."
 
+![](assets/malebolgia.png)
+
 Malebolgia creates new spawns.
 
 It is a powerful library in Nim that simplifies the implementation of
