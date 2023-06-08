@@ -200,9 +200,7 @@ macro checkBody(body: untyped): untyped =
     nnkExportStmt, nnkPragma, nnkCommentStmt,
     nnkTypeOfExpr, nnkMixinStmt, nnkBindStmt}
 
-  const BranchingNodes = {nnkStmtList, nnkStmtListExpr, nnkBlockStmt,
-    nnkWhileStmt, nnkForStmt,
-    nnkIfStmt, nnkElse, nnkElseExpr, nnkElifBranch, nnkElifExpr,
+  const BranchingNodes = {nnkIfStmt, nnkElse, nnkElseExpr, nnkElifBranch, nnkElifExpr,
     nnkOfBranch, nnkExceptBranch}
 
   proc isSpawn(n: NimNode): bool =
