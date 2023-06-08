@@ -200,6 +200,8 @@ macro checkBody(body: untyped): untyped =
     nnkExportStmt, nnkPragma, nnkCommentStmt,
     nnkTypeOfExpr, nnkMixinStmt, nnkBindStmt}
 
+  const BranchingNodes = {nnkIfStmt, nnkCaseStmt}
+
   proc isSpawn(n: NimNode): bool =
     n.eqIdent("spawn") or (n.kind == nnkDotExpr and n[1].eqIdent("spawn"))
 
@@ -218,12 +220,19 @@ macro checkBody(body: untyped): untyped =
       discard "declarative nodes are not interesting"
     else:
       let withinLoopB = withinLoop or n.kind in {nnkWhileStmt, nnkForStmt}
-      for child in items(n): check child, exprs, withinLoopB
-      for i in 0..<exprs.len:
-        # `==` on NimNode checks if nodes are structurally equivalent.
-        # Which is exactly what we need here:
-        if exprs[i] == n:
-          error("re-use of expression '" & $n & "' before 'awaitAll' completed", n)
+      if n.kind in BranchingNodes:
+        let preExprs = exprs[0..^1]
+        for child in items(n):
+          var branchExprs = preExprs
+          check child, branchExprs, withinLoopB
+          exprs.add branchExprs[preExprs.len..^1]
+      else:
+        for child in items(n): check child, exprs, withinLoopB
+        for i in 0..<exprs.len:
+          # `==` on NimNode checks if nodes are structurally equivalent.
+          # Which is exactly what we need here:
+          if exprs[i] == n:
+            error("re-use of expression '" & $n & "' before 'awaitAll' completed", n)
 
   var exprs: seq[NimNode] = @[]
   check body, exprs, false
