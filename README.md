@@ -135,7 +135,7 @@ m.awaitAll:
 ## MasterHandle
 
 A `Master` object cannot be passed to subroutines, but
-a `MasterHandle` can be passed to subroutines. In order to create a `MasterHandle` 
+a `MasterHandle` can be passed to subroutines. In order to create a `MasterHandle`
 use the `getHandle` proc:
 
 ```nim
@@ -159,3 +159,41 @@ main()
 A `MasterHandle` does not support the `awaitAll` operation but it can `spawn`
 new tasks and supports cancelation. Thus a `MasterHandle` object cannot be used
 to break the structured concurrency abstraction.
+
+
+## Mutable parameters and data sharing
+
+Currently `var T` parameters are unfortunately not supported but it is easy to
+work around this limitation: Since the parallelism is "structured" we can take the
+address of a variable declared outside of the `awaitAll` block and pass it safely to
+a `spawned` operation:
+
+```nim
+
+import std / [strutils, tables]
+import malebolgia
+import malebolgia / ticketlocks
+
+proc countWords(filename: string; results: ptr CountTable[string]; L: ptr TicketLock) =
+  for w in splitWhitespace(readFile(filename)):
+    withLock L[]:
+      results[].inc w
+
+proc main =
+  var m = createMaster()
+  var results = initCountTable[string]()
+  var L = initTicketLock() # protects `results`
+
+  m.awaitAll:
+    m.spawn countWords("temp.nim", addr results, addr L)
+    m.spawn countWords("tester.nim", addr results, addr L)
+
+  results.sort()
+  echo results
+
+main()
+
+```
+
+In general such a parameter needs to be protected by a lock.
+We use Malebolgia's `TicketLock` here which does not require annoying `deinitLock` calls.
