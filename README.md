@@ -161,6 +161,38 @@ new tasks and supports cancelation. Thus a `MasterHandle` object cannot be used
 to break the structured concurrency abstraction.
 
 
+## Lockers
+
+The `Locker[T]` type wraps a data structure of type `T` with a lock and enables
+these types to be passed to a `spawned` operation. The data structure allows
+shared access and mutation:
+
+```nim
+
+import std / [strutils, tables]
+import malebolgia
+import malebolgia / lockers
+
+proc countWords(filename: string; results: Locker[CountTable[string]]) =
+  for w in splitWhitespace(readFile(filename)):
+    lock results as r:
+      r.inc w
+
+proc main() =
+  var m = createMaster()
+  var results = initLocker initCountTable[string]()
+
+  m.awaitAll:
+    m.spawn countWords("README.md", results)
+    m.spawn countWords("malebolgia.nimble", results)
+
+  unprotected results as r:
+    r.sort()
+    echo r
+
+main()
+```
+
 ## Mutable parameters and data sharing
 
 Currently `var T` parameters are unfortunately not supported but it is easy to

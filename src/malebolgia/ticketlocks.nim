@@ -31,7 +31,7 @@ proc release*(L: var TicketLock) {.inline.} =
 
 proc initTicketLock*(): TicketLock = TicketLock()
 
-template withLock*(a: TicketLock, body: untyped) =
+template withLock*(a: TicketLock; body: untyped) =
   ## Acquires the given lock, executes the statements in body and
   ## releases the lock after the statements finished executing.
   acquire(a)
