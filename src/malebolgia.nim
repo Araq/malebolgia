@@ -231,8 +231,8 @@ macro checkBody(body: untyped): untyped =
         for i in 0..<exprs.len:
           # `==` on NimNode checks if nodes are structurally equivalent.
           # Which is exactly what we need here:
-          if exprs[i] == n:
-            error("re-use of expression '" & $n & "' before 'awaitAll' completed", n)
+          if exprs[i] == n and n.kind in {nnkSym, nnkIdent}:
+            error("re-use of expression '" & repr(n) & "' before 'awaitAll' completed", n)
 
   var exprs: seq[NimNode] = @[]
   check body, exprs, false
