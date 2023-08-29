@@ -47,7 +47,8 @@ proc taskCreated(m: var Master) {.inline.} =
 proc taskCompleted(m: var Master) {.inline.} =
   acquire(m.L)
   dec m.runningTasks
-  signal(m.c)
+  if m.runningTasks == 0:
+    signal(m.c)
   release(m.L)
 
 proc stillHaveTime*(m: Master): bool {.inline.} =
