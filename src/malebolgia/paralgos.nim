@@ -5,7 +5,7 @@ import malebolgia
 template `@!`[T](data: openArray[T]; i: int): untyped =
   cast[ptr UncheckedArray[T]](addr data[i])
 
-template parMap*[T](data: var openArray[T]; bulkSize: int; op: untyped) =
+template parApply*[T](data: var openArray[T]; bulkSize: int; op: untyped) =
   ##[ Applies `op` on every element of `data`, `op(data[i)` in parallel.
   `bulkSize` specifies how many elements are processed sequentially
   and not in parallel because sending a task to a different thread
@@ -22,6 +22,28 @@ template parMap*[T](data: var openArray[T]; bulkSize: int; op: untyped) =
       i += bulkSize
     if i < data.len:
       m.spawn worker(data@!i, data.len-i)
+
+template parMap*[T](data: var openArray[T]; bulkSize: int; op: untyped): untyped =
+  ##[ Applies `op` on every element of `data`, `op(data[i)` in parallel.
+  Produces a new `seq` of `typeof(op(data[i]))`.
+  `bulkSize` specifies how many elements are processed sequentially
+  and not in parallel because sending a task to a different thread
+  is expensive. `bulkSize` should probably be larger than you think but
+  it depends on how expensive the operation `op` is.]##
+  proc worker[Tin, Tout](a: ptr UncheckedArray[Tin];
+                         dest: ptr UncheckedArray[Tout]; until: int) =
+    for i in 0..<until: dest[i] = op(a[i])
+
+  var m = createMaster()
+  var result = newSeq[typeof(op(data[0]))](data.len)
+  m.awaitAll:
+    var i = 0
+    while i+bulkSize <= data.len:
+      m.spawn worker(data@!i, result@!i, bulkSize)
+      i += bulkSize
+    if i < data.len:
+      m.spawn worker(data@!i, result@!i, data.len-i)
+  result
 
 template parReduce*[T](data: openArray[T]; bulkSize: int;
                        op: untyped): untyped =
