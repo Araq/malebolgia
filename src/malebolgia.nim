@@ -118,7 +118,6 @@ proc worker() {.thread.} =
   var item: PoolTask
   while not globalStopToken.load(moRelaxed):
     for i in 0..high(chan.lock):
-      let before = getMonoTime()
       if not tryAcquire(chan.lock[i]):
         continue
       if not chan.todo[i]:
