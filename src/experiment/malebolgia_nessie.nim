@@ -1,3 +1,13 @@
+import std/monotimes
+import std/times
+import std/tasks
+import std/strutils
+
+
+### MALEBOLGIA
+
+import malebolgia
+
 # (c) 2023 Andreas Rumpf
 
 import std / [atomics, locks, tasks, times]
@@ -243,4 +253,70 @@ template awaitAll*(master: var Master; body: untyped) =
 when not defined(maleSkipSetup):
   setup()
 
-include malebolgia / masterhandles
+
+### PARALGOS
+
+template `@!`[T](data: openArray[T]; i: int): untyped =
+  cast[ptr UncheckedArray[T]](addr data[i])
+
+template parMap*[T](data: var openArray[T]; bulkSize: int; op: untyped) =
+  proc work(a: ptr UncheckedArray[T]; until: int) =
+    for i in 0..<until: op a[i]
+  var m = createMaster()
+  m.awaitAll:
+    var i = 0
+    while i+bulkSize <= data.len:
+      m.spawn work(data@!i, bulkSize)
+      i += bulkSize
+    if i < data.len:
+      m.spawn work(data@!i, data.len-i)
+
+
+### BENCHMARK
+
+proc now(i: var MonoTime) {.inline.} =
+  i = getMonoTime()
+
+
+proc hello*(i: var string) {.inline.} =
+  i = "World"
+
+
+let sep  = "\t"
+let runs = 100
+echo [
+  "OP",
+  "T0E0",
+  "T0E1",
+  "T1E0",
+  "T1E1",
+  "T2E0",
+  "T0E1-T0E0",
+  "T1E0-T0E1",
+].join(sep)
+
+var 
+  bigbang = getMonoTime()
+  epoch   = getMonoTime()
+  ops = [epoch, epoch, epoch, epoch, epoch]
+  #ops = ["hello", "hello", "hello", "hello", "hello"]
+
+
+for i in 0..runs:
+  bigbang = getMonoTime()
+  epoch   = getMonoTime()
+  parMap ops, 2, now
+
+  echo [
+    $inNanoseconds(epoch  - bigbang),
+    $inNanoseconds(ops[0] - epoch),
+    $inNanoseconds(ops[1] - epoch),
+    $inNanoseconds(ops[2] - epoch),
+    $inNanoseconds(ops[3] - epoch),
+    $inNanoseconds(ops[4] - epoch),
+    $inNanoseconds(ops[1] - ops[0]),
+    $inNanoseconds(ops[3] - ops[1]),
+  ].join(sep)
+
+  #parMap ops, 2, hello
+  #echo $ops
