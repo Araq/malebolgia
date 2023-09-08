@@ -16,12 +16,15 @@ template withTTASLock(lock: var Atomic[bool]; andCond: untyped; bode: untyped): 
   var unlocked = false
   while true:
     if lock.load(moRelaxed):
-       continue
+      cpuRelax()
+      continue
     if lock.exchange(true, moAcquire):
+      cpuRelax()
       continue
     if not andCond:
       # we unlocked but other condition failed, release it
       lock.store(false, moRelaxed)
+      cpuRelax()
       # echo getThreadId(), " unlocked but ", andCond
       continue
     #echo getThreadId(), " unlocked and ", andCond
@@ -150,6 +153,7 @@ proc send(item: sink PoolTask) =
   for i in threads():
     # Test
     if chan.board[i].load(moRelaxed) notin [done, empty]:
+      cpuRelax()
       continue
 
     # Test and Set
@@ -163,7 +167,7 @@ proc send(item: sink PoolTask) =
         tsFeeding, moAcquire, moRelease):
       ackchyually = i
       break
-
+    cpuRelax()
 
   chan.data[ackchyually] = item
   chan.board[ackchyually].store(tsToDo, moRelease)
@@ -176,10 +180,12 @@ proc worker(i: int) {.thread.} =
   while not globalStopToken.load(moRelaxed):
     # Test
     if chan.board[i].load(moRelaxed) != todo:
+      cpuRelax()
       continue
     # Test and Set
     if not chan.board[i].compareExchange(todo,
         wip, moRelaxed, moRelease):
+      cpuRelax()
       continue
 
     item = move chan.data[i]

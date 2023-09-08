@@ -16,13 +16,16 @@ template withTTASLock(lock: var Atomic[bool]; andCond: untyped; bode: untyped): 
   var unlocked = false
   while true:
     if lock.load(moRelaxed):
-       continue
+      cpuRelax()
+      continue
     if lock.exchange(true, moAcquire):
+      cpuRelax()
       continue
     if not andCond:
       # we unlocked but other condition failed, release it
       lock.store(false, moRelaxed)
       # echo getThreadId(), " unlocked but ", andCond
+      cpuRelax()
       continue
     #echo getThreadId(), " unlocked and ", andCond
     break
