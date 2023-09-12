@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.0"
+version       = "1.3.0"
 author        = "Araq"
 description   = "Malebolgia creates new spawns. Experiments with thread pools and related APIs."
 license       = "MIT"
