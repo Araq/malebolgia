@@ -82,10 +82,10 @@ proc waitForCompletions(m: var Master) =
 # thread pool independent of the 'master':
 
 const
-  FixedChanSize {.intdefine.} = 16 ## must be a power of two!
+  FixedChanSize* {.intdefine.} = 16 ## must be a power of two!
   FixedChanMask = FixedChanSize - 1
 
-  ThreadPoolSize {.intdefine.} = 8 # 24
+  ThreadPoolSize* {.intdefine.} = 8 # 24
 
 type
   PoolTask = object ## a task for the thread pool
