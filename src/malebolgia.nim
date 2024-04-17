@@ -137,13 +137,14 @@ proc worker() {.thread.} =
       try:
         atomicInc busyThreads
         item.t.invoke(item.result)
-        atomicDec busyThreads
       except:
         acquire(item.m.L)
         if item.m.error.len == 0:
           let e = getCurrentException()
           item.m.error = "SPAWN FAILURE: [" & $e.name & "] " & e.msg & "\n" & getStackTrace(e)
         release(item.m.L)
+      finally:
+        atomicDec busyThreads
 
     # but mark it as completed either way!
     taskCompleted item.m[]
