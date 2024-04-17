@@ -14,7 +14,7 @@ type
     runningTasks: int
     stopToken: Atomic[bool]
     shouldEndAt: Time
-    usesTimeout: bool
+    usesTimeout, activeProducer: bool
 
 proc `=destroy`(m: var Master) {.inline.} =
   deinitCond(m.c)
@@ -23,13 +23,17 @@ proc `=destroy`(m: var Master) {.inline.} =
 proc `=copy`(dest: var Master; src: Master) {.error.}
 proc `=sink`(dest: var Master; src: Master) {.error.}
 
-proc createMaster*(timeout = default(Duration)): Master =
+proc createMaster*(timeout = default(Duration); activeProducer = false): Master =
+  ## Set `activeProducer` to true to prevent the master thread from
+  ## running a task directly.
+  ## But beware! This can introduce deadlocks for recursive loads!
   result = default(Master)
   initCond(result.c)
   initLock(result.L)
   if timeout != default(Duration):
     result.usesTimeout = true
     result.shouldEndAt = getTime() + timeout
+  result.activeProducer = activeProducer
 
 proc cancel*(m: var Master) =
   ## Try to stop all running tasks immediately.
@@ -163,9 +167,12 @@ proc panicStop*() =
   deinitCond(chan.spaceAvailable)
   deinitLock(chan.L)
 
+proc shouldSend(master: var Master): bool {.inline.} =
+  master.activeProducer or busyThreads.load(moRelaxed) < ThreadPoolSize-1
+
 template spawnImplRes[T](master: var Master; fn: typed; res: T) =
   if stillHaveTime(master):
-    if busyThreads.load(moRelaxed) < ThreadPoolSize-1:
+    if shouldSend(master):
       taskCreated master
       send PoolTask(m: addr(master), t: toTask(fn), result: addr res)
     else:
@@ -173,7 +180,7 @@ template spawnImplRes[T](master: var Master; fn: typed; res: T) =
 
 template spawnImplNoRes(master: var Master; fn: typed) =
   if stillHaveTime(master):
-    if busyThreads.load(moRelaxed) < ThreadPoolSize-1:
+    if shouldSend(master):
       taskCreated master
       send PoolTask(m: addr(master), t: toTask(fn), result: nil)
     else:
