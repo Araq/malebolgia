@@ -6,7 +6,7 @@ template `@!`[T](data: openArray[T]; i: int): untyped =
   cast[ptr UncheckedArray[T]](addr data[i])
 
 template parApply*[T](data: var openArray[T]; bulkSize: int; op: untyped) =
-  ##[ Applies `op` on every element of `data`, `op(data[i)` in parallel.
+  ##[ Applies `op` on every element of `data`, `op(data[i])` in parallel.
   `bulkSize` specifies how many elements are processed sequentially
   and not in parallel because sending a task to a different thread
   is expensive. `bulkSize` should probably be larger than you think but
@@ -23,8 +23,8 @@ template parApply*[T](data: var openArray[T]; bulkSize: int; op: untyped) =
     if i < data.len:
       m.spawn worker(data@!i, data.len-i)
 
-template parMap*[T](data: var openArray[T]; bulkSize: int; op: untyped): untyped =
-  ##[ Applies `op` on every element of `data`, `op(data[i)` in parallel.
+template parMap*[T](data: openArray[T]; bulkSize: int; op: untyped): untyped =
+  ##[ Applies `op` on every element of `data`, `op(data[i])` in parallel.
   Produces a new `seq` of `typeof(op(data[i]))`.
   `bulkSize` specifies how many elements are processed sequentially
   and not in parallel because sending a task to a different thread
