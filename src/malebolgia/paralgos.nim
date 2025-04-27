@@ -67,7 +67,7 @@ template parReduce*[T](data: openArray[T]; bulkSize: int;
       op(result, a[i])
 
   var m = createMaster()
-  var res = newSeq[int](data.len div bulkSize + 1)
+  var res = newSeq[T](data.len div bulkSize + 1)
   var r = 0
   m.awaitAll:
     var i = 0
