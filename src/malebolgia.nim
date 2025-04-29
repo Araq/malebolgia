@@ -3,6 +3,9 @@
 import std / [atomics, locks, tasks, times]
 from std / os import sleep
 
+when defined(nimPreviewSlimSystem):
+  import std / typedthreads
+
 import std / isolation
 export isolation
 
