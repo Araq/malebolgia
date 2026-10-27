@@ -110,9 +110,11 @@ m.awaitAll:
 
 ## Timeouts
 
-`createMaster` supports an optional `timeout` parameter. The timeout covers
-all created tasks that belong to the created master. Long running tasks
-can query `master.cancelled` to see if they should stop.
+`createMaster` supports an optional `timeout` parameter. When the timeout expires,
+the master requests cancellation and `awaitAll` waits for all spawned tasks to
+finish before raising the timeout error. Long-running tasks should query
+`master.cancelled` so they can stop cooperatively; an uncooperative task can delay
+`awaitAll` beyond the configured timeout.
 
 ```nim
 
