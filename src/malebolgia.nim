@@ -77,13 +77,18 @@ proc waitForCompletions(m: var Master) =
         timeoutErr = true
         break
       sleep(10) # XXX maybe make more precise
-    acquire(m.L)
+    if timeoutErr:
+      m.cancel()
+      acquire(m.L)
+      while m.runningTasks > 0:
+        wait(m.c, m.L)
+    else:
+      acquire(m.L)
   let err = move(m.error)
   release(m.L)
   if err.len > 0:
     raise newException(ValueError, err)
   elif timeoutErr:
-    m.cancel()
     raise newException(ValueError, "'awaitAll' timeout")
 
 # thread pool independent of the 'master':
